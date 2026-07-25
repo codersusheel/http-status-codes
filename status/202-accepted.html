@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>202 Accepted | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 202 Accepted status code with meaning, API examples, browser examples, Fetch API, cURL, Node.js, PHP, real-world use cases and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>202 Accepted</h1>
+
+            <p>
+
+                The request has been accepted for processing,
+                but it has not been completed yet.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/2xx.html">2xx Success</a>
+
+            <span>></span>
+
+            <span>202 Accepted</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 202 Accepted?</h2>
+
+            <p>
+
+                <strong>202 Accepted</strong> means the server has received
+                the request and accepted it for processing, but the task has
+                not finished yet.
+
+            </p>
+
+            <p>
+
+                This status code is commonly used for background jobs,
+                long-running operations, file processing, email sending,
+                report generation and asynchronous APIs.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User uploads a large video
+
+↓
+
+Server
+
+HTTP/1.1 202 Accepted
+
+↓
+
+Video processing started...
+
+↓
+
+User receives notification
+when processing finishes.
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>POST /api/reports HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
+
+{
+    "report":"sales"
+}
+</code></pre>
+
+        </section>
+
+        <!-- API Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 202 Accepted
+Content-Type: application/json
+
+{
+    "success": true,
+    "message": "Report generation started.",
+    "status": "processing"
+}
+</code></pre>
+
+        </section>
+
+        <!-- Fetch -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/reports",{
+
+    method:"POST"
+
+})
+
+.then(response=>{
+
+    console.log(response.status);
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.post("/reports",(req,res)=>{
+
+    res.status(202).json({
+
+        message:"Report generation started."
+
+    });
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(202);
+
+echo json_encode([
+    "message"=>"Processing started"
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl -X POST https://api.example.com/reports
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── POST Request
+   │
+Server
+   │
+   ├── 202 Accepted
+   │
+Background Job
+   │
+   ├── Processing...
+   │
+Finished
+   │
+   └── Success
+</code></pre>
+
+        </section>
+
+        <!-- Common Uses -->
+
+        <section class="section">
+
+            <h2>Common Uses</h2>
+
+            <ul>
+
+                <li>Large file uploads</li>
+
+                <li>Video processing</li>
+
+                <li>Email sending</li>
+
+                <li>Image compression</li>
+
+                <li>PDF generation</li>
+
+                <li>Data import/export</li>
+
+                <li>Background jobs</li>
+
+                <li>Queue systems</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Action</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Generate Report</td>
+
+                    <td>202 Accepted</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Send Bulk Emails</td>
+
+                    <td>202 Accepted</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Video Encoding</td>
+
+                    <td>202 Accepted</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Cloud Backup</td>
+
+                    <td>202 Accepted</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Best Practices -->
+
+        <section class="section">
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Use 202 only for asynchronous processing.</li>
+
+                <li>Provide a way to check processing status.</li>
+
+                <li>Return a Job ID or Tracking ID.</li>
+
+                <li>Do not use 202 when work is already complete.</li>
+
+                <li>Return 200 or 201 after the operation finishes.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>201 vs 202</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>201 Created</td>
+
+                    <td>Resource created immediately.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>202 Accepted</td>
+
+                    <td>Request accepted and processing continues.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="200-ok.html" class="card">
+
+                    <h3>200 OK</h3>
+
+                    <p>Request completed successfully.</p>
+
+                </a>
+
+                <a href="201-created.html" class="card">
+
+                    <h3>201 Created</h3>
+
+                    <p>A new resource was created.</p>
+
+                </a>
+
+                <a href="204-no-content.html" class="card">
+
+                    <h3>204 No Content</h3>
+
+                    <p>Request succeeded without a response body.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="201-created.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/2xx.html">
+
+                    Back to 2xx
+
+                </a>
+
+                <a class="button"
+                    href="204-no-content.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>200 OK | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 200 OK status code with meaning, browser examples, API examples, Fetch API, cURL, server response, best practices and real-world examples.">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>200 OK</h1>
+
+            <p>
+
+                The request was successful and the server returned the requested
+                resource.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/2xx.html">2xx Success</a>
+
+            <span>></span>
+
+            <span>200 OK</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 200 OK?</h2>
+
+            <p>
+
+                <strong>200 OK</strong> is the most common HTTP success status
+                code.
+
+                It means the server successfully received, understood and
+                processed the client's request.
+
+            </p>
+
+            <p>
+
+                Whenever you open a webpage, call an API, submit a request or
+                load data successfully, the server often responds with
+                <strong>200 OK</strong>.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User opens
+
+https://example.com
+
+↓
+
+Server
+
+HTTP/1.1 200 OK
+
+↓
+
+Homepage loads successfully
+</code></pre>
+
+        </section>
+
+        <!-- API Example -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>GET /api/users HTTP/1.1
+Host: api.example.com
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "success": true,
+    "message": "Users loaded successfully.",
+    "users": [
+        {
+            "id": 1,
+            "name": "John"
+        }
+    ]
+}
+</code></pre>
+
+        </section>
+
+        <!-- JavaScript -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/users")
+
+.then(response => {
+
+    console.log(response.status);
+
+    return response.json();
+
+})
+
+.then(data => {
+
+    console.log(data);
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl -X GET https://api.example.com/users
+</code></pre>
+
+        </section>
+
+        <!-- HTML -->
+
+        <section class="section">
+
+            <h2>Website Example</h2>
+
+<pre><code>https://example.com/about
+
+↓
+
+200 OK
+
+↓
+
+The page opens successfully.
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Browser
+   │
+   ├── GET /index.html
+   │
+Server
+   │
+   ├── HTTP/1.1 200 OK
+   │
+Browser
+   │
+   └── Displays Website
+</code></pre>
+
+        </section>
+
+        <!-- Common Uses -->
+
+        <section class="section">
+
+            <h2>Common Uses</h2>
+
+            <ul>
+
+                <li>Opening a website.</li>
+
+                <li>Loading user profiles.</li>
+
+                <li>Fetching products from an API.</li>
+
+                <li>Successful login requests.</li>
+
+                <li>Reading blog articles.</li>
+
+                <li>Downloading files.</li>
+
+                <li>Loading dashboard data.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Action</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Open Google Homepage</td>
+
+                    <td>200 OK</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Open GitHub Repository</td>
+
+                    <td>200 OK</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Load User Dashboard</td>
+
+                    <td>200 OK</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Fetch API Data</td>
+
+                    <td>200 OK</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Tips -->
+
+        <section class="section">
+
+            <h2>Developer Tips</h2>
+
+            <ul>
+
+                <li>Use 200 only when the request succeeds.</li>
+
+                <li>Return useful response data.</li>
+
+                <li>Use JSON for REST APIs.</li>
+
+                <li>Do not use 200 for errors.</li>
+
+                <li>Choose 201 when creating a new resource.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="201-created.html" class="card">
+
+                    <h3>201 Created</h3>
+
+                    <p>A new resource was successfully created.</p>
+
+                </a>
+
+                <a href="204-no-content.html" class="card">
+
+                    <h3>204 No Content</h3>
+
+                    <p>Success without returning any content.</p>
+
+                </a>
+
+                <a href="404-not-found.html" class="card">
+
+                    <h3>404 Not Found</h3>
+
+                    <p>The requested resource could not be found.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="../categories/2xx.html">
+
+                    ← Back to 2xx
+
+                </a>
+
+                <a class="button"
+                    href="201-created.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

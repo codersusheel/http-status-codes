@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>3xx Redirection HTTP Status Codes</title>
+
+    <meta name="description"
+        content="Learn 3xx Redirection HTTP Status Codes including 301 Moved Permanently, 302 Found, 304 Not Modified, 307 Temporary Redirect and 308 Permanent Redirect with explanations, examples and use cases.">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>3xx Redirection</h1>
+
+            <p>
+                Redirection responses indicate that the requested resource has
+                moved or requires additional action to complete the request.
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <span>3xx Redirection</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>About 3xx Status Codes</h2>
+
+            <p>
+
+                The <strong>3xx</strong> HTTP Status Codes tell the browser or
+                client that the requested resource is available at another
+                location or that additional action is required before the
+                request can be completed.
+
+            </p>
+
+        </section>
+
+        <!-- Status Cards -->
+
+        <section class="section">
+
+            <h2>Available Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="../status/301-moved-permanently.html" class="card">
+
+                    <h3>301 Moved Permanently</h3>
+
+                    <p>
+                        Resource has permanently moved to a new URL.
+                    </p>
+
+                </a>
+
+                <a href="../status/302-found.html" class="card">
+
+                    <h3>302 Found</h3>
+
+                    <p>
+                        Resource is temporarily available at another URL.
+                    </p>
+
+                </a>
+
+                <a href="../status/304-not-modified.html" class="card">
+
+                    <h3>304 Not Modified</h3>
+
+                    <p>
+                        Cached version can be used.
+                    </p>
+
+                </a>
+
+                <a href="../status/307-temporary-redirect.html" class="card">
+
+                    <h3>307 Temporary Redirect</h3>
+
+                    <p>
+                        Temporary redirect without changing the request method.
+                    </p>
+
+                </a>
+
+                <a href="../status/308-permanent-redirect.html" class="card">
+
+                    <h3>308 Permanent Redirect</h3>
+
+                    <p>
+                        Permanent redirect while preserving the request method.
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Common Uses -->
+
+        <section class="section">
+
+            <h2>Where are 3xx Codes Used?</h2>
+
+            <ul>
+
+                <li>Website URL changes</li>
+
+                <li>SEO-friendly redirects</li>
+
+                <li>Domain migration</li>
+
+                <li>HTTP to HTTPS redirection</li>
+
+                <li>Browser caching</li>
+
+                <li>Temporary maintenance pages</li>
+
+                <li>Load balancing</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Example -->
+
+        <section class="section">
+
+            <h2>Example</h2>
+
+<pre><code>Request
+
+GET /blog
+
+↓
+
+HTTP/1.1 301 Moved Permanently
+Location: /articles
+
+↓
+
+Browser automatically opens
+
+/articles
+</code></pre>
+
+        </section>
+
+        <!-- Quick Comparison -->
+
+        <section class="section">
+
+            <h2>Popular 3xx Status Codes</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>301</td>
+
+                    <td>Permanent redirect</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>302</td>
+
+                    <td>Temporary redirect</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>304</td>
+
+                    <td>Use cached version</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>307</td>
+
+                    <td>Temporary redirect (same method)</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>308</td>
+
+                    <td>Permanent redirect (same method)</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button" href="2xx.html">
+
+                    ← Previous Category
+
+                </a>
+
+                <a class="button" href="4xx.html">
+
+                    Next Category →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

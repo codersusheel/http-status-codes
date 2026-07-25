@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>302 Found | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 302 Found status code with browser examples, API examples, JavaScript, Node.js, PHP, Apache, Nginx, cURL, SEO impact, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>302 Found</h1>
+
+            <p>
+
+                The requested resource has been
+                temporarily moved to another URL.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/3xx.html">
+
+                3xx Redirection
+
+            </a>
+
+            <span>></span>
+
+            <span>302 Found</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 302 Found?</h2>
+
+            <p>
+
+                <strong>302 Found</strong> means the requested
+                resource is temporarily available at another URL.
+
+            </p>
+
+            <p>
+
+                Unlike <strong>301 Moved Permanently</strong>,
+                the original URL should continue to be used
+                because the redirect is only temporary.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User visits
+
+https://example.com/login
+
+↓
+
+Server
+
+HTTP/1.1 302 Found
+
+Location: /dashboard
+
+↓
+
+Browser opens
+
+https://example.com/dashboard
+</code></pre>
+
+        </section>
+
+        <!-- HTTP Request -->
+
+        <section class="section">
+
+            <h2>HTTP Request</h2>
+
+<pre><code>GET /login HTTP/1.1
+Host: example.com
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 302 Found
+Location: /dashboard
+</code></pre>
+
+        </section>
+
+        <!-- JavaScript -->
+
+        <section class="section">
+
+            <h2>JavaScript Example</h2>
+
+<pre><code>window.location.href =
+"/dashboard";
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.get("/login",(req,res)=>{
+
+    res.redirect("/dashboard");
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>header(
+"Location: /dashboard",
+true,
+302
+);
+
+exit;
+</code></pre>
+
+        </section>
+
+        <!-- Apache -->
+
+        <section class="section">
+
+            <h2>Apache (.htaccess)</h2>
+
+<pre><code>Redirect 302 /login /dashboard
+</code></pre>
+
+        </section>
+
+        <!-- Nginx -->
+
+        <section class="section">
+
+            <h2>Nginx Example</h2>
+
+<pre><code>location /login {
+
+    return 302 /dashboard;
+
+}
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl -I https://example.com/login
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Browser
+   │
+   ├── GET /login
+   │
+Server
+   │
+   ├── 302 Found
+   │
+Browser
+   │
+   ├── Redirects
+   │
+Server
+   │
+   └── 200 OK
+</code></pre>
+
+        </section>
+
+        <!-- Common Uses -->
+
+        <section class="section">
+
+            <h2>Common Uses</h2>
+
+            <ul>
+
+                <li>User login redirects.</li>
+
+                <li>Temporary maintenance pages.</li>
+
+                <li>A/B testing.</li>
+
+                <li>Seasonal promotions.</li>
+
+                <li>Language selection.</li>
+
+                <li>Temporary campaign pages.</li>
+
+                <li>Authentication workflows.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- SEO -->
+
+        <section class="section">
+
+            <h2>SEO Impact</h2>
+
+            <ul>
+
+                <li>Search engines treat it as temporary.</li>
+
+                <li>The original URL usually remains indexed.</li>
+
+                <li>Do not use 302 for permanent moves.</li>
+
+                <li>Use 301 when the change is permanent.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Original URL</th>
+
+                    <th>Temporary URL</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>/login</td>
+
+                    <td>/dashboard</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>/sale</td>
+
+                    <td>/summer-sale</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>/home</td>
+
+                    <td>/maintenance</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>/offer</td>
+
+                    <td>/special-offer</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Best Practices -->
+
+        <section class="section">
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Use 302 only for temporary redirects.</li>
+
+                <li>Do not replace permanent redirects with 302.</li>
+
+                <li>Always provide a valid Location header.</li>
+
+                <li>Avoid unnecessary redirect loops.</li>
+
+                <li>Monitor redirect performance.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>301 vs 302</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Purpose</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>301</td>
+
+                    <td>Permanent Redirect</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>302</td>
+
+                    <td>Temporary Redirect</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="301-moved-permanently.html"
+                    class="card">
+
+                    <h3>301 Moved Permanently</h3>
+
+                    <p>
+
+                        Permanent redirect.
+
+                    </p>
+
+                </a>
+
+                <a href="307-temporary-redirect.html"
+                    class="card">
+
+                    <h3>307 Temporary Redirect</h3>
+
+                    <p>
+
+                        Temporary redirect preserving request method.
+
+                    </p>
+
+                </a>
+
+                <a href="308-permanent-redirect.html"
+                    class="card">
+
+                    <h3>308 Permanent Redirect</h3>
+
+                    <p>
+
+                        Permanent redirect preserving request method.
+
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="301-moved-permanently.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/3xx.html">
+
+                    Back to 3xx
+
+                </a>
+
+                <a class="button"
+                    href="304-not-modified.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

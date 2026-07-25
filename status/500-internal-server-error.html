@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>500 Internal Server Error | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 500 Internal Server Error status code with browser examples, API requests, Fetch API, cURL, Node.js, PHP, common causes, troubleshooting, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>500 Internal Server Error</h1>
+
+            <p>
+
+                The server encountered an unexpected error
+                and could not complete the request.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/5xx.html">
+
+                5xx Server Errors
+
+            </a>
+
+            <span>></span>
+
+            <span>500 Internal Server Error</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 500 Internal Server Error?</h2>
+
+            <p>
+
+                <strong>500 Internal Server Error</strong>
+                indicates that something went wrong on the server,
+                but the server cannot identify the exact problem.
+
+            </p>
+
+            <p>
+
+                It is one of the most common server-side errors and
+                usually results from application bugs,
+                server misconfiguration, database failures,
+                or unexpected exceptions.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User opens
+
+https://example.com/dashboard
+
+↓
+
+Server processes request
+
+↓
+
+Unexpected Exception
+
+↓
+
+HTTP/1.1 500 Internal Server Error
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>GET /api/users HTTP/1.1
+Host: api.example.com
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "success": false,
+    "error": "Internal Server Error"
+}
+</code></pre>
+
+        </section>
+
+        <!-- JavaScript -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/users")
+
+.then(response=>{
+
+    if(response.status===500){
+
+        console.log("Server Error");
+
+    }
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.get("/users",(req,res)=>{
+
+    throw new Error("Database Error");
+
+});
+
+app.use((err,req,res,next)=>{
+
+    res.status(500).json({
+
+        error:"Internal Server Error"
+
+    });
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(500);
+
+echo json_encode([
+
+    "error"=>"Internal Server Error"
+
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl https://api.example.com/users
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── Send Request
+   │
+Server
+   │
+   ├── Unexpected Error
+   │
+   └── HTTP 500
+</code></pre>
+
+        </section>
+
+        <!-- Common Causes -->
+
+        <section class="section">
+
+            <h2>Common Causes</h2>
+
+            <ul>
+
+                <li>Application bugs.</li>
+
+                <li>Database connection failure.</li>
+
+                <li>Server misconfiguration.</li>
+
+                <li>PHP or Node.js exceptions.</li>
+
+                <li>Missing server files.</li>
+
+                <li>Permission issues.</li>
+
+                <li>Memory or resource exhaustion.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Solutions -->
+
+        <section class="section">
+
+            <h2>How to Fix</h2>
+
+            <ul>
+
+                <li>Check server logs.</li>
+
+                <li>Debug application code.</li>
+
+                <li>Verify database connectivity.</li>
+
+                <li>Review server configuration.</li>
+
+                <li>Restart the application or server.</li>
+
+                <li>Handle exceptions properly.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Scenario</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Database Crash</td>
+
+                    <td>500</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Coding Exception</td>
+
+                    <td>500</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Configuration Error</td>
+
+                    <td>500</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Missing Environment Variable</td>
+
+                    <td>500</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>500 vs 503</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>500 Internal Server Error</td>
+
+                    <td>Unexpected server-side error.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>503 Service Unavailable</td>
+
+                    <td>Server is temporarily unavailable.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="501-not-implemented.html"
+                    class="card">
+
+                    <h3>501 Not Implemented</h3>
+
+                    <p>Requested functionality is not supported.</p>
+
+                </a>
+
+                <a href="502-bad-gateway.html"
+                    class="card">
+
+                    <h3>502 Bad Gateway</h3>
+
+                    <p>Invalid response from an upstream server.</p>
+
+                </a>
+
+                <a href="503-service-unavailable.html"
+                    class="card">
+
+                    <h3>503 Service Unavailable</h3>
+
+                    <p>Server temporarily unavailable.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="../categories/5xx.html">
+
+                    ← Back to 5xx
+
+                </a>
+
+                <a class="button"
+                    href="501-not-implemented.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>304 Not Modified | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 304 Not Modified status code with browser caching examples, API examples, ETag, Last-Modified, Fetch API, cURL, Node.js, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>304 Not Modified</h1>
+
+            <p>
+
+                The requested resource has not changed since the
+                last request, so the browser can use its cached copy.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/3xx.html">
+
+                3xx Redirection
+
+            </a>
+
+            <span>></span>
+
+            <span>304 Not Modified</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 304 Not Modified?</h2>
+
+            <p>
+
+                <strong>304 Not Modified</strong> means the requested
+                resource has not changed since the browser last
+                downloaded it.
+
+            </p>
+
+            <p>
+
+                Instead of downloading the file again, the browser
+                loads the cached version, saving bandwidth and making
+                websites load faster.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User visits
+
+https://example.com/logo.png
+
+↓
+
+Browser stores the image
+
+↓
+
+User refreshes the page
+
+↓
+
+Server
+
+HTTP/1.1 304 Not Modified
+
+↓
+
+Browser uses cached image
+</code></pre>
+
+        </section>
+
+        <!-- HTTP Request -->
+
+        <section class="section">
+
+            <h2>HTTP Request</h2>
+
+<pre><code>GET /logo.png HTTP/1.1
+Host: example.com
+If-None-Match: "abc123"
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 304 Not Modified
+ETag: "abc123"
+</code></pre>
+
+        </section>
+
+        <!-- Fetch -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/logo.png")
+
+.then(response=>{
+
+    console.log(response.status);
+
+});
+</code></pre>
+
+            <p>
+
+                Modern browsers automatically handle
+                <strong>304 Not Modified</strong> responses using
+                the browser cache.
+
+            </p>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.use(express.static("public",{
+
+    etag:true,
+
+    lastModified:true
+
+}));
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>header('HTTP/1.1 304 Not Modified');
+exit;
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl -I \
+-H 'If-None-Match: "abc123"' \
+https://example.com/logo.png
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Browser
+   │
+   ├── Requests File
+   │
+Server
+   │
+   ├── File Unchanged
+   │
+   └── HTTP 304
+   │
+Browser
+   │
+   └── Uses Cached Copy
+</code></pre>
+
+        </section>
+
+        <!-- Common Uses -->
+
+        <section class="section">
+
+            <h2>Common Uses</h2>
+
+            <ul>
+
+                <li>Images</li>
+
+                <li>CSS files</li>
+
+                <li>JavaScript files</li>
+
+                <li>Fonts</li>
+
+                <li>Website logos</li>
+
+                <li>API caching</li>
+
+                <li>Static website assets</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Benefits -->
+
+        <section class="section">
+
+            <h2>Benefits</h2>
+
+            <ul>
+
+                <li>Faster page loading.</li>
+
+                <li>Reduces bandwidth usage.</li>
+
+                <li>Improves website performance.</li>
+
+                <li>Lowers server load.</li>
+
+                <li>Provides a better user experience.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Resource</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>style.css</td>
+
+                    <td>304 Not Modified</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>app.js</td>
+
+                    <td>304 Not Modified</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>logo.png</td>
+
+                    <td>304 Not Modified</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Roboto Font</td>
+
+                    <td>304 Not Modified</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>200 vs 304</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>200 OK</td>
+
+                    <td>Returns the complete resource.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>304 Not Modified</td>
+
+                    <td>Use the cached version.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="301-moved-permanently.html"
+                    class="card">
+
+                    <h3>301 Moved Permanently</h3>
+
+                    <p>Permanent redirect.</p>
+
+                </a>
+
+                <a href="302-found.html"
+                    class="card">
+
+                    <h3>302 Found</h3>
+
+                    <p>Temporary redirect.</p>
+
+                </a>
+
+                <a href="307-temporary-redirect.html"
+                    class="card">
+
+                    <h3>307 Temporary Redirect</h3>
+
+                    <p>Temporary redirect preserving request method.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="302-found.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/3xx.html">
+
+                    Back to 3xx
+
+                </a>
+
+                <a class="button"
+                    href="307-temporary-redirect.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

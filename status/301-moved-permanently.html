@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>301 Moved Permanently | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 301 Moved Permanently status code with explanations, browser examples, API examples, SEO impact, cURL, Node.js, Apache, Nginx, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>301 Moved Permanently</h1>
+
+            <p>
+
+                The requested resource has permanently moved
+                to a new URL.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/3xx.html">3xx Redirection</a>
+
+            <span>></span>
+
+            <span>301 Moved Permanently</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 301 Moved Permanently?</h2>
+
+            <p>
+
+                <strong>301 Moved Permanently</strong> indicates that the
+                requested resource has permanently moved to a new location.
+
+            </p>
+
+            <p>
+
+                Browsers automatically redirect users to the new URL,
+                and search engines update their indexes to use the new
+                address.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User opens
+
+https://example.com/blog
+
+↓
+
+Server
+
+HTTP/1.1 301 Moved Permanently
+
+Location: https://example.com/articles
+
+↓
+
+Browser automatically opens
+
+https://example.com/articles
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>HTTP Request</h2>
+
+<pre><code>GET /blog HTTP/1.1
+Host: example.com
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 301 Moved Permanently
+Location: https://example.com/articles
+</code></pre>
+
+        </section>
+
+        <!-- JavaScript -->
+
+        <section class="section">
+
+            <h2>JavaScript Example</h2>
+
+<pre><code>window.location.replace(
+    "https://example.com/articles"
+);
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.get("/blog",(req,res)=>{
+
+    res.redirect(301,"/articles");
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>header(
+"Location: /articles",
+true,
+301
+);
+
+exit;
+</code></pre>
+
+        </section>
+
+        <!-- Apache -->
+
+        <section class="section">
+
+            <h2>Apache (.htaccess)</h2>
+
+<pre><code>Redirect 301 /blog /articles
+</code></pre>
+
+        </section>
+
+        <!-- Nginx -->
+
+        <section class="section">
+
+            <h2>Nginx Example</h2>
+
+<pre><code>location /blog {
+
+    return 301 /articles;
+
+}
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl -I https://example.com/blog
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Browser
+   │
+   ├── GET /blog
+   │
+Server
+   │
+   ├── 301 Redirect
+   │
+Browser
+   │
+   ├── Opens New URL
+   │
+Server
+   │
+   └── 200 OK
+</code></pre>
+
+        </section>
+
+        <!-- Common Uses -->
+
+        <section class="section">
+
+            <h2>Common Uses</h2>
+
+            <ul>
+
+                <li>Changing page URLs.</li>
+
+                <li>Website redesign.</li>
+
+                <li>Domain migration.</li>
+
+                <li>HTTP to HTTPS redirects.</li>
+
+                <li>SEO-friendly URL updates.</li>
+
+                <li>Removing duplicate pages.</li>
+
+                <li>Moving blog articles.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- SEO -->
+
+        <section class="section">
+
+            <h2>SEO Benefits</h2>
+
+            <ul>
+
+                <li>Transfers ranking signals to the new URL.</li>
+
+                <li>Prevents duplicate content issues.</li>
+
+                <li>Preserves backlinks.</li>
+
+                <li>Improves user experience.</li>
+
+                <li>Recommended for permanent URL changes.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Old URL</th>
+
+                    <th>Redirects To</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>/blog</td>
+
+                    <td>/articles</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>http://example.com</td>
+
+                    <td>https://example.com</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>/old-course</td>
+
+                    <td>/new-course</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>/old-product</td>
+
+                    <td>/products/new</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Best Practices -->
+
+        <section class="section">
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Use 301 only for permanent redirects.</li>
+
+                <li>Always redirect to the most relevant page.</li>
+
+                <li>Avoid redirect chains.</li>
+
+                <li>Update internal links after redirecting.</li>
+
+                <li>Test redirects regularly.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>301 vs 302</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>301</td>
+
+                    <td>Permanent Redirect</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>302</td>
+
+                    <td>Temporary Redirect</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="302-found.html" class="card">
+
+                    <h3>302 Found</h3>
+
+                    <p>Temporary redirect.</p>
+
+                </a>
+
+                <a href="307-temporary-redirect.html" class="card">
+
+                    <h3>307 Temporary Redirect</h3>
+
+                    <p>Temporary redirect preserving request method.</p>
+
+                </a>
+
+                <a href="308-permanent-redirect.html" class="card">
+
+                    <h3>308 Permanent Redirect</h3>
+
+                    <p>Permanent redirect preserving request method.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="../categories/3xx.html">
+
+                    ← Back to 3xx
+
+                </a>
+
+                <a class="button"
+                    href="302-found.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

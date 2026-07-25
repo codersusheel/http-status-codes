@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>400 Bad Request | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 400 Bad Request status code with browser examples, API requests, Fetch API, cURL, Node.js, PHP, common causes, solutions, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>400 Bad Request</h1>
+
+            <p>
+
+                The server could not understand the request because
+                it contains invalid syntax or incorrect data.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/4xx.html">
+
+                4xx Client Errors
+
+            </a>
+
+            <span>></span>
+
+            <span>400 Bad Request</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 400 Bad Request?</h2>
+
+            <p>
+
+                <strong>400 Bad Request</strong> means the server
+                cannot process the request because it is invalid.
+
+            </p>
+
+            <p>
+
+                This usually happens due to malformed JSON,
+                missing required fields, invalid parameters,
+                incorrect headers, or an invalid URL.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User submits a form
+
+↓
+
+Required field is missing
+
+↓
+
+Server
+
+HTTP/1.1 400 Bad Request
+
+↓
+
+Error message displayed
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>POST /api/users HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
+
+{
+    "name":
+}
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "success": false,
+    "error": "Invalid JSON format."
+}
+</code></pre>
+
+        </section>
+
+        <!-- Fetch -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/users",{
+
+    method:"POST",
+
+    headers:{
+        "Content-Type":"application/json"
+    },
+
+    body:"invalid json"
+
+})
+
+.then(response=>{
+
+    console.log(response.status);
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.post("/users",(req,res)=>{
+
+    if(!req.body.name){
+
+        return res.status(400).json({
+
+            error:"Name is required."
+
+        });
+
+    }
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(400);
+
+echo json_encode([
+
+    "error"=>"Invalid request."
+
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl -X POST \
+https://api.example.com/users \
+-H "Content-Type: application/json" \
+-d "invalid json"
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── Invalid Request
+   │
+Server
+   │
+   ├── Validation Failed
+   │
+   └── HTTP 400 Bad Request
+</code></pre>
+
+        </section>
+
+        <!-- Common Causes -->
+
+        <section class="section">
+
+            <h2>Common Causes</h2>
+
+            <ul>
+
+                <li>Malformed JSON.</li>
+
+                <li>Missing required fields.</li>
+
+                <li>Invalid query parameters.</li>
+
+                <li>Incorrect request headers.</li>
+
+                <li>Invalid URL encoding.</li>
+
+                <li>Unsupported request format.</li>
+
+                <li>Corrupted request body.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Solutions -->
+
+        <section class="section">
+
+            <h2>How to Fix</h2>
+
+            <ul>
+
+                <li>Validate request data.</li>
+
+                <li>Check JSON syntax.</li>
+
+                <li>Verify required fields.</li>
+
+                <li>Use correct Content-Type headers.</li>
+
+                <li>Validate API parameters.</li>
+
+                <li>Test requests with Postman or cURL.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Scenario</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Invalid Login Request</td>
+
+                    <td>400</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Broken JSON</td>
+
+                    <td>400</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Missing Email Field</td>
+
+                    <td>400</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Invalid API Parameter</td>
+
+                    <td>400</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>400 vs 422</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>400 Bad Request</td>
+
+                    <td>Invalid request syntax or format.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>422 Unprocessable Entity</td>
+
+                    <td>Valid syntax but validation failed.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="401-unauthorized.html"
+                    class="card">
+
+                    <h3>401 Unauthorized</h3>
+
+                    <p>Authentication required.</p>
+
+                </a>
+
+                <a href="403-forbidden.html"
+                    class="card">
+
+                    <h3>403 Forbidden</h3>
+
+                    <p>Access denied.</p>
+
+                </a>
+
+                <a href="404-not-found.html"
+                    class="card">
+
+                    <h3>404 Not Found</h3>
+
+                    <p>Requested resource not found.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="../categories/4xx.html">
+
+                    ← Back to 4xx
+
+                </a>
+
+                <a class="button"
+                    href="401-unauthorized.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

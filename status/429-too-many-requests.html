@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>429 Too Many Requests | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 429 Too Many Requests status code with browser examples, API requests, Fetch API, cURL, Node.js, PHP, rate limiting, common causes, troubleshooting, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>429 Too Many Requests</h1>
+
+            <p>
+
+                The client has sent too many requests
+                within a given period of time.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/4xx.html">
+
+                4xx Client Errors
+
+            </a>
+
+            <span>></span>
+
+            <span>429 Too Many Requests</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 429 Too Many Requests?</h2>
+
+            <p>
+
+                <strong>429 Too Many Requests</strong> means the client
+                has exceeded the allowed request limit within a specific
+                time period.
+
+            </p>
+
+            <p>
+
+                Servers use this status code to prevent abuse,
+                protect APIs, and maintain service availability.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User refreshes a page
+
+100 times in a few seconds
+
+↓
+
+Server Rate Limit
+
+↓
+
+HTTP/1.1 429 Too Many Requests
+
+↓
+
+Please wait before trying again.
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>GET /api/weather HTTP/1.1
+Host: api.example.com
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 429 Too Many Requests
+
+Retry-After: 60
+
+Content-Type: application/json
+
+{
+    "success": false,
+    "error": "Rate limit exceeded."
+}
+</code></pre>
+
+        </section>
+
+        <!-- JavaScript -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/weather")
+
+.then(response=>{
+
+    if(response.status===429){
+
+        console.log("Too many requests");
+
+    }
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>const rateLimit = require("express-rate-limit");
+
+const limiter = rateLimit({
+
+    windowMs:60*1000,
+
+    max:100
+
+});
+
+app.use(limiter);
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(429);
+
+header("Retry-After: 60");
+
+echo json_encode([
+
+    "error"=>"Too Many Requests"
+
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl https://api.example.com/weather
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── Many Requests
+   │
+Server
+   │
+   ├── Rate Limit Reached
+   │
+   └── HTTP 429
+</code></pre>
+
+        </section>
+
+        <!-- Common Causes -->
+
+        <section class="section">
+
+            <h2>Common Causes</h2>
+
+            <ul>
+
+                <li>API rate limit exceeded.</li>
+
+                <li>Too many page refreshes.</li>
+
+                <li>Automated bots.</li>
+
+                <li>Web scraping.</li>
+
+                <li>DDoS protection rules.</li>
+
+                <li>Multiple login attempts.</li>
+
+                <li>High-frequency polling.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Solutions -->
+
+        <section class="section">
+
+            <h2>How to Fix</h2>
+
+            <ul>
+
+                <li>Wait before sending another request.</li>
+
+                <li>Respect the <strong>Retry-After</strong> header.</li>
+
+                <li>Reduce request frequency.</li>
+
+                <li>Implement request caching.</li>
+
+                <li>Use exponential backoff.</li>
+
+                <li>Upgrade your API plan if required.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Scenario</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>API Rate Limit Reached</td>
+
+                    <td>429</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Too Many Login Attempts</td>
+
+                    <td>429</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Bot Detection</td>
+
+                    <td>429</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Web Scraping Protection</td>
+
+                    <td>429</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>429 vs 503</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>429 Too Many Requests</td>
+
+                    <td>Client exceeded the request limit.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>503 Service Unavailable</td>
+
+                    <td>Server is temporarily unavailable.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="408-request-timeout.html"
+                    class="card">
+
+                    <h3>408 Request Timeout</h3>
+
+                    <p>Request timed out.</p>
+
+                </a>
+
+                <a href="410-gone.html"
+                    class="card">
+
+                    <h3>410 Gone</h3>
+
+                    <p>Resource permanently removed.</p>
+
+                </a>
+
+                <a href="503-service-unavailable.html"
+                    class="card">
+
+                    <h3>503 Service Unavailable</h3>
+
+                    <p>Server temporarily unavailable.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="410-gone.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/4xx.html">
+
+                    Back to 4xx
+
+                </a>
+
+                <a class="button"
+                    href="../categories/5xx.html">
+
+                    Next Category →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

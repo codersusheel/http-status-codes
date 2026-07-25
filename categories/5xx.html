@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>5xx Server Error HTTP Status Codes</title>
+
+    <meta name="description"
+        content="Learn 5xx Server Error HTTP Status Codes including 500 Internal Server Error, 501 Not Implemented, 502 Bad Gateway, 503 Service Unavailable and 504 Gateway Timeout with explanations, examples and real-world use cases.">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>5xx Server Errors</h1>
+
+            <p>
+                Server Error responses indicate that the server encountered a
+                problem while processing a valid request. These errors are
+                usually caused by server-side issues, application bugs,
+                overloaded services, or infrastructure failures.
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <span>5xx Server Errors</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>About 5xx Status Codes</h2>
+
+            <p>
+
+                The <strong>5xx</strong> HTTP Status Codes indicate that the
+                client's request was valid, but the server failed to complete
+                it because of an internal problem.
+
+            </p>
+
+            <p>
+
+                These errors are commonly seen in web applications, REST APIs,
+                cloud services, reverse proxies, load balancers, and database-
+                driven websites.
+
+            </p>
+
+        </section>
+
+        <!-- Status Cards -->
+
+        <section class="section">
+
+            <h2>Available Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="../status/500-internal-server-error.html" class="card">
+
+                    <h3>500 Internal Server Error</h3>
+
+                    <p>
+                        The server encountered an unexpected condition.
+                    </p>
+
+                </a>
+
+                <a href="../status/501-not-implemented.html" class="card">
+
+                    <h3>501 Not Implemented</h3>
+
+                    <p>
+                        The requested functionality is not supported.
+                    </p>
+
+                </a>
+
+                <a href="../status/502-bad-gateway.html" class="card">
+
+                    <h3>502 Bad Gateway</h3>
+
+                    <p>
+                        Invalid response received from an upstream server.
+                    </p>
+
+                </a>
+
+                <a href="../status/503-service-unavailable.html" class="card">
+
+                    <h3>503 Service Unavailable</h3>
+
+                    <p>
+                        Server is temporarily unavailable.
+                    </p>
+
+                </a>
+
+                <a href="../status/504-gateway-timeout.html" class="card">
+
+                    <h3>504 Gateway Timeout</h3>
+
+                    <p>
+                        Upstream server took too long to respond.
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Common Uses -->
+
+        <section class="section">
+
+            <h2>Where are 5xx Codes Used?</h2>
+
+            <ul>
+
+                <li>Application server crashes</li>
+
+                <li>Database connection failures</li>
+
+                <li>Cloud infrastructure issues</li>
+
+                <li>Reverse proxy errors</li>
+
+                <li>Load balancer failures</li>
+
+                <li>Server maintenance</li>
+
+                <li>Microservice communication problems</li>
+
+                <li>Unexpected backend exceptions</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Example -->
+
+        <section class="section">
+
+            <h2>Example</h2>
+
+<pre><code>Request
+
+GET /api/profile
+
+↓
+
+HTTP/1.1 500 Internal Server Error
+
+{
+    "error": "Something went wrong."
+}
+</code></pre>
+
+        </section>
+
+        <!-- Quick Comparison -->
+
+        <section class="section">
+
+            <h2>Popular 5xx Status Codes</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>500</td>
+
+                    <td>Unexpected server error</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>501</td>
+
+                    <td>Feature not implemented</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>502</td>
+
+                    <td>Bad gateway response</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>503</td>
+
+                    <td>Service temporarily unavailable</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>504</td>
+
+                    <td>Gateway timeout</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Real-World Examples -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <ul>
+
+                <li><strong>500</strong> → PHP, Node.js, Java, or Python application error</li>
+
+                <li><strong>501</strong> → API endpoint not supported by the server</li>
+
+                <li><strong>502</strong> → Nginx cannot communicate with the backend server</li>
+
+                <li><strong>503</strong> → Website under maintenance or overloaded</li>
+
+                <li><strong>504</strong> → Database or API server takes too long to respond</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Developer Tips -->
+
+        <section class="section">
+
+            <h2>Developer Tips</h2>
+
+            <ul>
+
+                <li>Check server logs.</li>
+
+                <li>Verify database connectivity.</li>
+
+                <li>Monitor server resources (CPU, RAM, Disk).</li>
+
+                <li>Inspect reverse proxy configuration.</li>
+
+                <li>Restart failed services if necessary.</li>
+
+                <li>Implement proper error logging and monitoring.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button" href="4xx.html">
+
+                    ← Previous Category
+
+                </a>
+
+                <a class="button" href="../index.html">
+
+                    🏠 Back to Home
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

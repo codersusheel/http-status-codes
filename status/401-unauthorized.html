@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>401 Unauthorized | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 401 Unauthorized status code with authentication examples, API requests, Fetch API, cURL, Node.js, PHP, JWT authentication, common causes, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>401 Unauthorized</h1>
+
+            <p>
+
+                Authentication is required before
+                accessing the requested resource.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/4xx.html">
+
+                4xx Client Errors
+
+            </a>
+
+            <span>></span>
+
+            <span>401 Unauthorized</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 401 Unauthorized?</h2>
+
+            <p>
+
+                <strong>401 Unauthorized</strong> means the client
+                must authenticate before the server will allow
+                access to the requested resource.
+
+            </p>
+
+            <p>
+
+                It usually occurs when the authentication token,
+                API key, session, or login credentials are missing,
+                invalid, or expired.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User visits
+
+/admin
+
+↓
+
+Server checks login
+
+↓
+
+HTTP/1.1 401 Unauthorized
+
+↓
+
+User is redirected
+to the login page
+</code></pre>
+
+        </section>
+
+        <!-- HTTP Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>GET /api/profile HTTP/1.1
+Host: api.example.com
+
+Authorization:
+Bearer INVALID_TOKEN
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+
+{
+    "success": false,
+    "error": "Authentication required."
+}
+</code></pre>
+
+        </section>
+
+        <!-- Fetch -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/profile",{
+
+    headers:{
+
+        Authorization:
+        "Bearer INVALID_TOKEN"
+
+    }
+
+})
+
+.then(response=>{
+
+    console.log(response.status);
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.get("/profile",(req,res)=>{
+
+    if(!req.user){
+
+        return res.status(401).json({
+
+            error:"Unauthorized"
+
+        });
+
+    }
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(401);
+
+echo json_encode([
+
+    "error"=>"Unauthorized"
+
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl \
+-H "Authorization: Bearer INVALID_TOKEN" \
+https://api.example.com/profile
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Authentication Flow</h2>
+
+<pre><code>Client
+   │
+   ├── Request Resource
+   │
+Server
+   │
+   ├── Verify Token
+   │
+   ├── Invalid Token
+   │
+   └── HTTP 401
+</code></pre>
+
+        </section>
+
+        <!-- Common Causes -->
+
+        <section class="section">
+
+            <h2>Common Causes</h2>
+
+            <ul>
+
+                <li>Missing login credentials.</li>
+
+                <li>Expired JWT token.</li>
+
+                <li>Invalid API key.</li>
+
+                <li>Expired session.</li>
+
+                <li>Missing Authorization header.</li>
+
+                <li>Invalid username or password.</li>
+
+                <li>OAuth authentication failure.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Solutions -->
+
+        <section class="section">
+
+            <h2>How to Fix</h2>
+
+            <ul>
+
+                <li>Log in again.</li>
+
+                <li>Refresh expired access tokens.</li>
+
+                <li>Verify API keys.</li>
+
+                <li>Send the Authorization header correctly.</li>
+
+                <li>Check authentication middleware.</li>
+
+                <li>Confirm user credentials.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Scenario</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Expired JWT Token</td>
+
+                    <td>401</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Missing Login</td>
+
+                    <td>401</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Invalid API Key</td>
+
+                    <td>401</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Expired Session</td>
+
+                    <td>401</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>401 vs 403</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>401 Unauthorized</td>
+
+                    <td>Authentication required.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>403 Forbidden</td>
+
+                    <td>Authenticated but access denied.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="400-bad-request.html"
+                    class="card">
+
+                    <h3>400 Bad Request</h3>
+
+                    <p>Invalid client request.</p>
+
+                </a>
+
+                <a href="403-forbidden.html"
+                    class="card">
+
+                    <h3>403 Forbidden</h3>
+
+                    <p>Permission denied.</p>
+
+                </a>
+
+                <a href="404-not-found.html"
+                    class="card">
+
+                    <h3>404 Not Found</h3>
+
+                    <p>Requested resource does not exist.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="400-bad-request.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/4xx.html">
+
+                    Back to 4xx
+
+                </a>
+
+                <a class="button"
+                    href="403-forbidden.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

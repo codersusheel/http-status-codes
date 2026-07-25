@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>501 Not Implemented | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 501 Not Implemented status code with browser examples, API requests, Fetch API, cURL, Node.js, PHP, common causes, troubleshooting, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>501 Not Implemented</h1>
+
+            <p>
+
+                The server does not support the
+                functionality required to complete the request.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/5xx.html">
+
+                5xx Server Errors
+
+            </a>
+
+            <span>></span>
+
+            <span>501 Not Implemented</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 501 Not Implemented?</h2>
+
+            <p>
+
+                <strong>501 Not Implemented</strong> means the
+                server recognizes the request method but does not
+                support it or has not implemented the required
+                functionality.
+
+            </p>
+
+            <p>
+
+                This error usually occurs when a client sends
+                an unsupported HTTP method or requests a feature
+                that the server has not implemented.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>Client sends
+
+PATCH /users
+
+↓
+
+Server doesn't support PATCH
+
+↓
+
+HTTP/1.1 501 Not Implemented
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>PATCH /api/users/10 HTTP/1.1
+Host: api.example.com
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 501 Not Implemented
+Content-Type: application/json
+
+{
+    "success": false,
+    "error": "Not Implemented"
+}
+</code></pre>
+
+        </section>
+
+        <!-- JavaScript -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/users/10",{
+
+    method:"PATCH"
+
+})
+
+.then(response=>{
+
+    if(response.status===501){
+
+        console.log("Feature not supported");
+
+    }
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.patch("/users/:id",(req,res)=>{
+
+    res.status(501).json({
+
+        error:"Not Implemented"
+
+    });
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(501);
+
+echo json_encode([
+
+    "error"=>"Not Implemented"
+
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl -X PATCH \
+https://api.example.com/users/10
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── Unsupported Feature
+   │
+Server
+   │
+   ├── Not Implemented
+   │
+   └── HTTP 501
+</code></pre>
+
+        </section>
+
+        <!-- Common Causes -->
+
+        <section class="section">
+
+            <h2>Common Causes</h2>
+
+            <ul>
+
+                <li>Unsupported HTTP method.</li>
+
+                <li>Feature not developed.</li>
+
+                <li>Old web server software.</li>
+
+                <li>API endpoint not implemented.</li>
+
+                <li>Framework limitation.</li>
+
+                <li>Custom server restrictions.</li>
+
+                <li>Experimental feature disabled.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Solutions -->
+
+        <section class="section">
+
+            <h2>How to Fix</h2>
+
+            <ul>
+
+                <li>Use a supported HTTP method.</li>
+
+                <li>Check the API documentation.</li>
+
+                <li>Upgrade the server software.</li>
+
+                <li>Implement the missing feature.</li>
+
+                <li>Enable the required module.</li>
+
+                <li>Contact the API provider.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Scenario</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Unsupported PATCH Method</td>
+
+                    <td>501</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>API Feature Not Available</td>
+
+                    <td>501</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Old Server Software</td>
+
+                    <td>501</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Unfinished Application Feature</td>
+
+                    <td>501</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>501 vs 405</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>405 Method Not Allowed</td>
+
+                    <td>Method exists but isn't allowed for this resource.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>501 Not Implemented</td>
+
+                    <td>Server does not support the requested method or feature.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="500-internal-server-error.html"
+                    class="card">
+
+                    <h3>500 Internal Server Error</h3>
+
+                    <p>Unexpected server-side error.</p>
+
+                </a>
+
+                <a href="502-bad-gateway.html"
+                    class="card">
+
+                    <h3>502 Bad Gateway</h3>
+
+                    <p>Invalid upstream server response.</p>
+
+                </a>
+
+                <a href="503-service-unavailable.html"
+                    class="card">
+
+                    <h3>503 Service Unavailable</h3>
+
+                    <p>Server temporarily unavailable.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="500-internal-server-error.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/5xx.html">
+
+                    Back to 5xx
+
+                </a>
+
+                <a class="button"
+                    href="502-bad-gateway.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

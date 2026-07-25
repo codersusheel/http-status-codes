@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>201 Created | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 201 Created status code with meaning, API examples, browser examples, Fetch API, cURL, POST requests, best practices and real-world examples.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>201 Created</h1>
+
+            <p>
+
+                The request was successful and a new resource
+                has been created on the server.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/2xx.html">2xx Success</a>
+
+            <span>></span>
+
+            <span>201 Created</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 201 Created?</h2>
+
+            <p>
+
+                <strong>201 Created</strong> indicates that the server
+                successfully processed the request and created a new
+                resource.
+
+            </p>
+
+            <p>
+
+                It is most commonly returned after a successful
+                <strong>POST</strong> request such as creating a user,
+                blog post, product, order, or file.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User submits
+
+Registration Form
+
+↓
+
+Server
+
+HTTP/1.1 201 Created
+
+↓
+
+Account Created Successfully
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>POST /api/users HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
+
+{
+    "name": "John",
+    "email": "john@example.com"
+}
+</code></pre>
+
+        </section>
+
+        <!-- API Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 201 Created
+Location: /api/users/101
+
+{
+    "success": true,
+    "message": "User created successfully.",
+    "id": 101
+}
+</code></pre>
+
+        </section>
+
+        <!-- Fetch API -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/users",{
+
+    method:"POST",
+
+    headers:{
+        "Content-Type":"application/json"
+    },
+
+    body:JSON.stringify({
+
+        name:"John",
+
+        email:"john@example.com"
+
+    })
+
+})
+
+.then(response=>{
+
+    console.log(response.status);
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.post("/users",(req,res)=>{
+
+    res.status(201).json({
+
+        message:"User Created"
+
+    });
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(201);
+
+echo json_encode([
+    "message" => "User Created"
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl -X POST https://api.example.com/users \
+-H "Content-Type: application/json" \
+-d '{"name":"John"}'
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── POST /users
+   │
+Server
+   │
+   ├── Creates User
+   │
+   └── HTTP 201 Created
+</code></pre>
+
+        </section>
+
+        <!-- Common Uses -->
+
+        <section class="section">
+
+            <h2>Common Uses</h2>
+
+            <ul>
+
+                <li>Create a new account.</li>
+
+                <li>Publish a blog post.</li>
+
+                <li>Add a new product.</li>
+
+                <li>Create an order.</li>
+
+                <li>Upload a file.</li>
+
+                <li>Create a support ticket.</li>
+
+                <li>Register a new device.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Action</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Create GitHub Repository</td>
+
+                    <td>201 Created</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Create User Account</td>
+
+                    <td>201 Created</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Create Blog Article</td>
+
+                    <td>201 Created</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Add Product</td>
+
+                    <td>201 Created</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Best Practices -->
+
+        <section class="section">
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Use <strong>201</strong> only when a new resource is created.</li>
+
+                <li>Return the created resource if possible.</li>
+
+                <li>Include the <strong>Location</strong> header.</li>
+
+                <li>Use <strong>200 OK</strong> when updating an existing resource.</li>
+
+                <li>Validate user input before creating data.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>200 vs 201</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Use Case</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>200 OK</td>
+
+                    <td>Existing resource returned successfully.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>201 Created</td>
+
+                    <td>New resource successfully created.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="200-ok.html" class="card">
+
+                    <h3>200 OK</h3>
+
+                    <p>Request completed successfully.</p>
+
+                </a>
+
+                <a href="202-accepted.html" class="card">
+
+                    <h3>202 Accepted</h3>
+
+                    <p>Request accepted for processing.</p>
+
+                </a>
+
+                <a href="204-no-content.html" class="card">
+
+                    <h3>204 No Content</h3>
+
+                    <p>Success without a response body.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="200-ok.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/2xx.html">
+
+                    Back to 2xx
+
+                </a>
+
+                <a class="button"
+                    href="202-accepted.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

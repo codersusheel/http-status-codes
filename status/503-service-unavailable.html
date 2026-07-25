@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>503 Service Unavailable | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 503 Service Unavailable status code with browser examples, API requests, Fetch API, cURL, Node.js, PHP, server maintenance, troubleshooting, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>503 Service Unavailable</h1>
+
+            <p>
+
+                The server is temporarily unable to
+                handle the request due to maintenance
+                or overload.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/5xx.html">
+
+                5xx Server Errors
+
+            </a>
+
+            <span>></span>
+
+            <span>503 Service Unavailable</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 503 Service Unavailable?</h2>
+
+            <p>
+
+                <strong>503 Service Unavailable</strong>
+                indicates that the server is currently
+                unable to process the request.
+
+            </p>
+
+            <p>
+
+                Unlike a <strong>500 Internal Server Error</strong>,
+                a <strong>503</strong> usually means the server
+                is temporarily unavailable because of
+                maintenance, overload, or limited resources.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User opens
+
+https://example.com
+
+↓
+
+Server Maintenance
+
+↓
+
+HTTP/1.1 503 Service Unavailable
+
+↓
+
+Please try again later
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>GET /api/products HTTP/1.1
+Host: api.example.com
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 503 Service Unavailable
+
+Retry-After: 300
+
+Content-Type: application/json
+
+{
+    "success": false,
+    "error": "Service Unavailable"
+}
+</code></pre>
+
+        </section>
+
+        <!-- JavaScript -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/products")
+
+.then(response=>{
+
+    if(response.status===503){
+
+        console.log("Server temporarily unavailable");
+
+    }
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.get("/products",(req,res)=>{
+
+    res.status(503).json({
+
+        error:"Service Unavailable"
+
+    });
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(503);
+
+header("Retry-After: 300");
+
+echo json_encode([
+
+    "error"=>"Service Unavailable"
+
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl https://api.example.com/products
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── Request
+   │
+Server
+   │
+   ├── Maintenance / Overloaded
+   │
+   └── HTTP 503 Service Unavailable
+</code></pre>
+
+        </section>
+
+        <!-- Common Causes -->
+
+        <section class="section">
+
+            <h2>Common Causes</h2>
+
+            <ul>
+
+                <li>Scheduled server maintenance.</li>
+
+                <li>High traffic or overload.</li>
+
+                <li>Database temporarily unavailable.</li>
+
+                <li>Resource exhaustion (CPU/RAM).</li>
+
+                <li>Application restarting.</li>
+
+                <li>DDoS protection mechanisms.</li>
+
+                <li>Server capacity limits reached.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Solutions -->
+
+        <section class="section">
+
+            <h2>How to Fix</h2>
+
+            <ul>
+
+                <li>Wait and try again later.</li>
+
+                <li>Check the Retry-After header.</li>
+
+                <li>Restart the server or application.</li>
+
+                <li>Increase server resources.</li>
+
+                <li>Review server and application logs.</li>
+
+                <li>Enable load balancing or auto scaling.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Scenario</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Website Under Maintenance</td>
+
+                    <td>503</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Server Overloaded</td>
+
+                    <td>503</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Database Offline</td>
+
+                    <td>503</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Cloud Service Temporarily Down</td>
+
+                    <td>503</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>500 vs 503</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>500 Internal Server Error</td>
+
+                    <td>Unexpected server-side error.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>503 Service Unavailable</td>
+
+                    <td>Server is temporarily unavailable.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="500-internal-server-error.html"
+                    class="card">
+
+                    <h3>500 Internal Server Error</h3>
+
+                    <p>Unexpected server error.</p>
+
+                </a>
+
+                <a href="502-bad-gateway.html"
+                    class="card">
+
+                    <h3>502 Bad Gateway</h3>
+
+                    <p>Invalid response from an upstream server.</p>
+
+                </a>
+
+                <a href="504-gateway-timeout.html"
+                    class="card">
+
+                    <h3>504 Gateway Timeout</h3>
+
+                    <p>Gateway timed out waiting for the upstream server.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="502-bad-gateway.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/5xx.html">
+
+                    Back to 5xx
+
+                </a>
+
+                <a class="button"
+                    href="504-gateway-timeout.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

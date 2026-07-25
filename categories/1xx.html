@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>1xx Informational HTTP Status Codes</title>
+
+    <meta name="description"
+        content="Learn 1xx Informational HTTP Status Codes including 100 Continue, 101 Switching Protocols, 102 Processing and 103 Early Hints with examples and explanations.">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>1xx Informational</h1>
+
+            <p>
+                Informational responses indicate that the server has received the request
+                and the client should continue the process.
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <span>1xx Informational</span>
+
+        </nav>
+
+        <!-- Category Overview -->
+
+        <section class="section">
+
+            <h2>About 1xx Status Codes</h2>
+
+            <p>
+
+                The <strong>1xx</strong> HTTP Status Codes are
+                <strong>Informational Responses</strong>.
+
+                These responses mean that the request has been received
+                and the client should continue sending the request or wait
+                for the final response.
+
+            </p>
+
+        </section>
+
+        <!-- Status Cards -->
+
+        <section class="section">
+
+            <h2>Available Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="../status/100-continue.html" class="card">
+
+                    <h3>100 Continue</h3>
+
+                    <p>
+                        Continue sending the request body.
+                    </p>
+
+                </a>
+
+                <a href="../status/101-switching-protocols.html" class="card">
+
+                    <h3>101 Switching Protocols</h3>
+
+                    <p>
+                        Server is switching to another protocol.
+                    </p>
+
+                </a>
+
+                <div class="card">
+
+                    <h3>102 Processing</h3>
+
+                    <p>
+                        Server is processing the request.
+                    </p>
+
+                    <small>Coming Soon</small>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>103 Early Hints</h3>
+
+                    <p>
+                        Browser can start loading resources early.
+                    </p>
+
+                    <small>Coming Soon</small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Common Uses -->
+
+        <section class="section">
+
+            <h2>Where are 1xx Codes Used?</h2>
+
+            <ul>
+
+                <li>Large file uploads</li>
+
+                <li>API communication</li>
+
+                <li>HTTP/2 & HTTP/3 connections</li>
+
+                <li>WebSocket connections</li>
+
+                <li>Performance optimization</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Quick Example -->
+
+        <section class="section">
+
+            <h2>Example</h2>
+
+<pre><code>Client
+   │
+   ├── POST /upload
+   │
+Server
+   │
+   ├── 100 Continue
+   │
+Client
+   │
+   ├── Upload File
+   │
+Server
+   │
+   └── 200 OK
+</code></pre>
+
+        </section>
+
+        <!-- Learn Next -->
+
+        <section class="section">
+
+            <h2>Next Category</h2>
+
+            <a class="button" href="2xx.html">
+
+                Learn 2xx Success →
+
+            </a>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

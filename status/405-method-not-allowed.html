@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>405 Method Not Allowed | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 405 Method Not Allowed status code with browser examples, API requests, Fetch API, cURL, Node.js, PHP, common causes, solutions, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>405 Method Not Allowed</h1>
+
+            <p>
+
+                The request method is recognized,
+                but it is not allowed for the requested resource.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/4xx.html">
+
+                4xx Client Errors
+
+            </a>
+
+            <span>></span>
+
+            <span>405 Method Not Allowed</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 405 Method Not Allowed?</h2>
+
+            <p>
+
+                <strong>405 Method Not Allowed</strong> means the
+                server understands the request, but the HTTP method
+                (GET, POST, PUT, DELETE, etc.) is not permitted
+                for the requested resource.
+
+            </p>
+
+            <p>
+
+                For example, sending a <strong>POST</strong>
+                request to an endpoint that only supports
+                <strong>GET</strong>.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User sends
+
+POST /profile
+
+↓
+
+Server only supports
+
+GET /profile
+
+↓
+
+HTTP/1.1 405 Method Not Allowed
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>POST /api/profile HTTP/1.1
+Host: api.example.com
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 405 Method Not Allowed
+Allow: GET
+
+{
+    "success": false,
+    "error": "Method Not Allowed"
+}
+</code></pre>
+
+        </section>
+
+        <!-- Fetch -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/profile",{
+
+    method:"POST"
+
+})
+
+.then(response=>{
+
+    console.log(response.status);
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.get("/profile",(req,res)=>{
+
+    res.send("Profile");
+
+});
+
+// POST is not defined,
+// so POST /profile returns 405
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>if($_SERVER["REQUEST_METHOD"]!="GET"){
+
+    http_response_code(405);
+
+    exit("Method Not Allowed");
+
+}
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl -X POST \
+https://api.example.com/profile
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── POST /profile
+   │
+Server
+   │
+   ├── Only GET Allowed
+   │
+   └── HTTP 405
+</code></pre>
+
+        </section>
+
+        <!-- Common Causes -->
+
+        <section class="section">
+
+            <h2>Common Causes</h2>
+
+            <ul>
+
+                <li>Using the wrong HTTP method.</li>
+
+                <li>Incorrect API documentation.</li>
+
+                <li>Route only supports GET.</li>
+
+                <li>Route only supports POST.</li>
+
+                <li>Server configuration restrictions.</li>
+
+                <li>Framework routing mismatch.</li>
+
+                <li>REST API implementation errors.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Solutions -->
+
+        <section class="section">
+
+            <h2>How to Fix</h2>
+
+            <ul>
+
+                <li>Check API documentation.</li>
+
+                <li>Use the correct HTTP method.</li>
+
+                <li>Verify server routes.</li>
+
+                <li>Check the <strong>Allow</strong> header.</li>
+
+                <li>Update routing configuration.</li>
+
+                <li>Test using Postman or cURL.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Scenario</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>POST on Read-only API</td>
+
+                    <td>405</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>DELETE on Login Page</td>
+
+                    <td>405</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>PUT on Static File</td>
+
+                    <td>405</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>PATCH on Unsupported Endpoint</td>
+
+                    <td>405</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>404 vs 405</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>404 Not Found</td>
+
+                    <td>Resource does not exist.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>405 Method Not Allowed</td>
+
+                    <td>Resource exists, but the HTTP method is not allowed.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="404-not-found.html"
+                    class="card">
+
+                    <h3>404 Not Found</h3>
+
+                    <p>Requested resource not found.</p>
+
+                </a>
+
+                <a href="408-request-timeout.html"
+                    class="card">
+
+                    <h3>408 Request Timeout</h3>
+
+                    <p>The request took too long.</p>
+
+                </a>
+
+                <a href="409-conflict.html"
+                    class="card">
+
+                    <h3>409 Conflict</h3>
+
+                    <p>Request conflicts with current resource state.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="404-not-found.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/4xx.html">
+
+                    Back to 4xx
+
+                </a>
+
+                <a class="button"
+                    href="408-request-timeout.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

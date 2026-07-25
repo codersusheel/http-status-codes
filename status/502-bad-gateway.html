@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>502 Bad Gateway | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 502 Bad Gateway status code with browser examples, API requests, Fetch API, cURL, Node.js, PHP, reverse proxies, load balancers, troubleshooting, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>502 Bad Gateway</h1>
+
+            <p>
+
+                The server received an invalid response
+                from an upstream server while processing
+                the request.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/5xx.html">
+
+                5xx Server Errors
+
+            </a>
+
+            <span>></span>
+
+            <span>502 Bad Gateway</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 502 Bad Gateway?</h2>
+
+            <p>
+
+                <strong>502 Bad Gateway</strong> means a server
+                acting as a gateway or proxy received an invalid
+                response from another server.
+
+            </p>
+
+            <p>
+
+                This commonly occurs with reverse proxies,
+                load balancers, CDNs, or API gateways when
+                the backend server fails to respond correctly.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User visits
+
+https://example.com
+
+↓
+
+Nginx / Cloudflare
+
+↓
+
+Backend Server
+
+↓
+
+Invalid Response
+
+↓
+
+HTTP/1.1 502 Bad Gateway
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>GET /api/products HTTP/1.1
+Host: api.example.com
+</code></pre>
+
+        </section>
+
+        <!-- Server Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 502 Bad Gateway
+Content-Type: application/json
+
+{
+    "success": false,
+    "error": "Bad Gateway"
+}
+</code></pre>
+
+        </section>
+
+        <!-- JavaScript -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/products")
+
+.then(response=>{
+
+    if(response.status===502){
+
+        console.log("Bad Gateway");
+
+    }
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.use((err,req,res,next)=>{
+
+    res.status(502).json({
+
+        error:"Bad Gateway"
+
+    });
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(502);
+
+echo json_encode([
+
+    "error"=>"Bad Gateway"
+
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl https://api.example.com/products
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── Request
+   │
+Gateway / Proxy
+   │
+   ├── Contacts Backend
+   │
+Backend Error
+   │
+   └── HTTP 502 Bad Gateway
+</code></pre>
+
+        </section>
+
+        <!-- Common Causes -->
+
+        <section class="section">
+
+            <h2>Common Causes</h2>
+
+            <ul>
+
+                <li>Backend server crashed.</li>
+
+                <li>Reverse proxy configuration error.</li>
+
+                <li>Invalid response from upstream server.</li>
+
+                <li>Load balancer issues.</li>
+
+                <li>DNS resolution problems.</li>
+
+                <li>Firewall blocking backend.</li>
+
+                <li>Cloudflare or CDN communication failure.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Solutions -->
+
+        <section class="section">
+
+            <h2>How to Fix</h2>
+
+            <ul>
+
+                <li>Check backend server status.</li>
+
+                <li>Restart the application.</li>
+
+                <li>Review Nginx or Apache configuration.</li>
+
+                <li>Verify proxy settings.</li>
+
+                <li>Check DNS and network connectivity.</li>
+
+                <li>Inspect server logs.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Scenario</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Cloudflare cannot reach origin server</td>
+
+                    <td>502</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Reverse proxy failure</td>
+
+                    <td>502</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Backend application crashed</td>
+
+                    <td>502</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Invalid API gateway response</td>
+
+                    <td>502</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>502 vs 504</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>502 Bad Gateway</td>
+
+                    <td>Gateway received an invalid response.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>504 Gateway Timeout</td>
+
+                    <td>Gateway waited too long for the upstream server.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="500-internal-server-error.html"
+                    class="card">
+
+                    <h3>500 Internal Server Error</h3>
+
+                    <p>Unexpected server error.</p>
+
+                </a>
+
+                <a href="503-service-unavailable.html"
+                    class="card">
+
+                    <h3>503 Service Unavailable</h3>
+
+                    <p>Server is temporarily unavailable.</p>
+
+                </a>
+
+                <a href="504-gateway-timeout.html"
+                    class="card">
+
+                    <h3>504 Gateway Timeout</h3>
+
+                    <p>Gateway timeout while waiting for a response.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="501-not-implemented.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/5xx.html">
+
+                    Back to 5xx
+
+                </a>
+
+                <a class="button"
+                    href="503-service-unavailable.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

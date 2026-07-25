@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>4xx Client Error HTTP Status Codes</title>
+
+    <meta name="description"
+        content="Learn 4xx Client Error HTTP Status Codes including 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 405 Method Not Allowed, 408 Request Timeout, 409 Conflict, 410 Gone and 429 Too Many Requests with examples and explanations.">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>4xx Client Errors</h1>
+
+            <p>
+                Client Error responses indicate that there is a problem with
+                the client's request. These errors usually occur because of an
+                invalid request, missing permissions, incorrect URLs, or other
+                issues on the client side.
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <span>4xx Client Errors</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>About 4xx Status Codes</h2>
+
+            <p>
+
+                The <strong>4xx</strong> HTTP Status Codes indicate that the
+                server received the request, but it cannot process it because
+                of an issue caused by the client.
+
+            </p>
+
+            <p>
+
+                These are the most common errors developers encounter while
+                building websites, REST APIs, mobile applications, and web
+                services.
+
+            </p>
+
+        </section>
+
+        <!-- Status Codes -->
+
+        <section class="section">
+
+            <h2>Available Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="../status/400-bad-request.html" class="card">
+
+                    <h3>400 Bad Request</h3>
+
+                    <p>
+                        The request is invalid or malformed.
+                    </p>
+
+                </a>
+
+                <a href="../status/401-unauthorized.html" class="card">
+
+                    <h3>401 Unauthorized</h3>
+
+                    <p>
+                        Authentication is required.
+                    </p>
+
+                </a>
+
+                <a href="../status/403-forbidden.html" class="card">
+
+                    <h3>403 Forbidden</h3>
+
+                    <p>
+                        Access to the resource is denied.
+                    </p>
+
+                </a>
+
+                <a href="../status/404-not-found.html" class="card">
+
+                    <h3>404 Not Found</h3>
+
+                    <p>
+                        The requested resource was not found.
+                    </p>
+
+                </a>
+
+                <a href="../status/405-method-not-allowed.html" class="card">
+
+                    <h3>405 Method Not Allowed</h3>
+
+                    <p>
+                        The HTTP method is not allowed.
+                    </p>
+
+                </a>
+
+                <a href="../status/408-request-timeout.html" class="card">
+
+                    <h3>408 Request Timeout</h3>
+
+                    <p>
+                        The request took too long to complete.
+                    </p>
+
+                </a>
+
+                <a href="../status/409-conflict.html" class="card">
+
+                    <h3>409 Conflict</h3>
+
+                    <p>
+                        Request conflicts with the current resource state.
+                    </p>
+
+                </a>
+
+                <a href="../status/410-gone.html" class="card">
+
+                    <h3>410 Gone</h3>
+
+                    <p>
+                        The resource has been permanently removed.
+                    </p>
+
+                </a>
+
+                <a href="../status/429-too-many-requests.html" class="card">
+
+                    <h3>429 Too Many Requests</h3>
+
+                    <p>
+                        Too many requests have been sent in a short period.
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Common Uses -->
+
+        <section class="section">
+
+            <h2>Where are 4xx Codes Used?</h2>
+
+            <ul>
+
+                <li>Wrong website URLs</li>
+
+                <li>Invalid API requests</li>
+
+                <li>Login and authentication failures</li>
+
+                <li>Permission or access restrictions</li>
+
+                <li>Expired sessions</li>
+
+                <li>Broken links</li>
+
+                <li>Rate limiting APIs</li>
+
+                <li>Deleted web pages</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Example -->
+
+        <section class="section">
+
+            <h2>Example</h2>
+
+<pre><code>Request
+
+GET /profile/999999
+
+↓
+
+HTTP/1.1 404 Not Found
+
+{
+    "error": "Profile not found"
+}
+</code></pre>
+
+        </section>
+
+        <!-- Quick Comparison -->
+
+        <section class="section">
+
+            <h2>Popular 4xx Status Codes</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>400</td>
+
+                    <td>Invalid request</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>401</td>
+
+                    <td>Authentication required</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>403</td>
+
+                    <td>Permission denied</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>404</td>
+
+                    <td>Resource not found</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>405</td>
+
+                    <td>Method not allowed</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>408</td>
+
+                    <td>Request timeout</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>409</td>
+
+                    <td>Conflict</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>410</td>
+
+                    <td>Gone permanently</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>429</td>
+
+                    <td>Too many requests</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Real-World Examples -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <ul>
+
+                <li><strong>400</strong> → Invalid form submission</li>
+
+                <li><strong>401</strong> → Login token missing</li>
+
+                <li><strong>403</strong> → Admin page without permission</li>
+
+                <li><strong>404</strong> → Deleted webpage</li>
+
+                <li><strong>405</strong> → Using POST instead of GET</li>
+
+                <li><strong>408</strong> → Slow internet connection</li>
+
+                <li><strong>409</strong> → Duplicate username</li>
+
+                <li><strong>410</strong> → Removed API endpoint</li>
+
+                <li><strong>429</strong> → API rate limit exceeded</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button" href="3xx.html">
+
+                    ← Previous Category
+
+                </a>
+
+                <a class="button" href="5xx.html">
+
+                    Next Category →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

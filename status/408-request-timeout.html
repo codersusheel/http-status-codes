@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>408 Request Timeout | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 408 Request Timeout status code with browser examples, API requests, Fetch API, cURL, Node.js, PHP, common causes, troubleshooting, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>408 Request Timeout</h1>
+
+            <p>
+
+                The server did not receive the complete request
+                within the allowed time.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/4xx.html">
+
+                4xx Client Errors
+
+            </a>
+
+            <span>></span>
+
+            <span>408 Request Timeout</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 408 Request Timeout?</h2>
+
+            <p>
+
+                <strong>408 Request Timeout</strong> means the client
+                took too long to send a complete request,
+                so the server closed the connection.
+
+            </p>
+
+            <p>
+
+                This usually happens because of a slow internet
+                connection, network interruption, or a client that
+                stopped sending data.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User uploads a large file
+
+↓
+
+Internet connection becomes slow
+
+↓
+
+Server waits
+
+↓
+
+Timeout reached
+
+↓
+
+HTTP/1.1 408 Request Timeout
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>POST /api/upload HTTP/1.1
+Host: api.example.com
+Content-Type: multipart/form-data
+
+(File upload...)
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 408 Request Timeout
+Content-Type: application/json
+
+{
+    "success": false,
+    "error": "Request Timeout"
+}
+</code></pre>
+
+        </section>
+
+        <!-- Fetch API -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/upload",{
+
+    method:"POST",
+
+    body:formData
+
+})
+
+.catch(error=>{
+
+    console.log("Request timed out");
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.post("/upload",(req,res)=>{
+
+    req.setTimeout(10000,()=>{
+
+        res.status(408).json({
+
+            error:"Request Timeout"
+
+        });
+
+    });
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(408);
+
+echo json_encode([
+
+    "error"=>"Request Timeout"
+
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl --max-time 5 \
+https://api.example.com/upload
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── Starts Request
+   │
+Network Delay
+   │
+Server
+   │
+   ├── Waits
+   │
+   └── HTTP 408 Request Timeout
+</code></pre>
+
+        </section>
+
+        <!-- Common Causes -->
+
+        <section class="section">
+
+            <h2>Common Causes</h2>
+
+            <ul>
+
+                <li>Slow internet connection.</li>
+
+                <li>Large file uploads.</li>
+
+                <li>Network interruption.</li>
+
+                <li>Server timeout settings.</li>
+
+                <li>Client stopped sending data.</li>
+
+                <li>High network latency.</li>
+
+                <li>Proxy timeout.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Solutions -->
+
+        <section class="section">
+
+            <h2>How to Fix</h2>
+
+            <ul>
+
+                <li>Check your internet connection.</li>
+
+                <li>Retry the request.</li>
+
+                <li>Reduce upload size.</li>
+
+                <li>Increase server timeout settings.</li>
+
+                <li>Optimize slow network requests.</li>
+
+                <li>Use resumable uploads for large files.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Scenario</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Large File Upload</td>
+
+                    <td>408</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Slow Mobile Network</td>
+
+                    <td>408</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Interrupted API Request</td>
+
+                    <td>408</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Timeout During Form Submission</td>
+
+                    <td>408</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>408 vs 504</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>408 Request Timeout</td>
+
+                    <td>Client took too long to send the request.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>504 Gateway Timeout</td>
+
+                    <td>A gateway server waited too long for another server.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="405-method-not-allowed.html"
+                    class="card">
+
+                    <h3>405 Method Not Allowed</h3>
+
+                    <p>Unsupported HTTP method.</p>
+
+                </a>
+
+                <a href="409-conflict.html"
+                    class="card">
+
+                    <h3>409 Conflict</h3>
+
+                    <p>Conflict with the current resource state.</p>
+
+                </a>
+
+                <a href="504-gateway-timeout.html"
+                    class="card">
+
+                    <h3>504 Gateway Timeout</h3>
+
+                    <p>Gateway server timeout.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="405-method-not-allowed.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/4xx.html">
+
+                    Back to 4xx
+
+                </a>
+
+                <a class="button"
+                    href="409-conflict.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

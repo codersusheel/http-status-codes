@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>404 Not Found | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 404 Not Found status code with browser examples, API requests, Fetch API, cURL, Node.js, PHP, common causes, SEO impact, troubleshooting, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>404 Not Found</h1>
+
+            <p>
+
+                The server cannot find the requested
+                resource or webpage.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/4xx.html">
+
+                4xx Client Errors
+
+            </a>
+
+            <span>></span>
+
+            <span>404 Not Found</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 404 Not Found?</h2>
+
+            <p>
+
+                <strong>404 Not Found</strong> means the server
+                successfully received the request but could not
+                find the requested resource.
+
+            </p>
+
+            <p>
+
+                It is one of the most common HTTP status codes and
+                usually appears when a webpage, image, API endpoint,
+                or file has been deleted, moved, or the URL is incorrect.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User visits
+
+https://example.com/about-us
+
+↓
+
+Page does not exist
+
+↓
+
+Server
+
+HTTP/1.1 404 Not Found
+
+↓
+
+Browser displays
+
+404 Page Not Found
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>GET /api/users/99999 HTTP/1.1
+Host: api.example.com
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "success": false,
+    "error": "Resource not found."
+}
+</code></pre>
+
+        </section>
+
+        <!-- Fetch API -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/users/99999")
+
+.then(response=>{
+
+    if(response.status===404){
+
+        console.log("User not found");
+
+    }
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.use((req,res)=>{
+
+    res.status(404).json({
+
+        error:"Page Not Found"
+
+    });
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(404);
+
+echo json_encode([
+
+    "error"=>"Page Not Found"
+
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl https://api.example.com/users/99999
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Browser
+   │
+   ├── Request Page
+   │
+Server
+   │
+   ├── Resource Not Found
+   │
+   └── HTTP 404
+</code></pre>
+
+        </section>
+
+        <!-- Common Causes -->
+
+        <section class="section">
+
+            <h2>Common Causes</h2>
+
+            <ul>
+
+                <li>Incorrect URL.</li>
+
+                <li>Deleted webpage.</li>
+
+                <li>Broken links.</li>
+
+                <li>Moved files.</li>
+
+                <li>Wrong API endpoint.</li>
+
+                <li>Incorrect routing.</li>
+
+                <li>Case-sensitive URL mismatch.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- How to Fix -->
+
+        <section class="section">
+
+            <h2>How to Fix</h2>
+
+            <ul>
+
+                <li>Check the URL carefully.</li>
+
+                <li>Verify routing configuration.</li>
+
+                <li>Create missing pages.</li>
+
+                <li>Use 301 redirects for moved pages.</li>
+
+                <li>Update broken links.</li>
+
+                <li>Create a custom 404 page.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- SEO -->
+
+        <section class="section">
+
+            <h2>SEO Impact</h2>
+
+            <ul>
+
+                <li>Broken links reduce user experience.</li>
+
+                <li>Too many 404 pages can affect website quality.</li>
+
+                <li>Use 301 redirects when content moves permanently.</li>
+
+                <li>Monitor crawl errors in Google Search Console.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Scenario</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Deleted Blog Post</td>
+
+                    <td>404</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Broken Image URL</td>
+
+                    <td>404</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Missing API Endpoint</td>
+
+                    <td>404</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Invalid Product URL</td>
+
+                    <td>404</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>404 vs 410</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>404 Not Found</td>
+
+                    <td>Resource cannot be found.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>410 Gone</td>
+
+                    <td>Resource has been permanently removed.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="400-bad-request.html"
+                    class="card">
+
+                    <h3>400 Bad Request</h3>
+
+                    <p>Invalid client request.</p>
+
+                </a>
+
+                <a href="403-forbidden.html"
+                    class="card">
+
+                    <h3>403 Forbidden</h3>
+
+                    <p>Access denied.</p>
+
+                </a>
+
+                <a href="410-gone.html"
+                    class="card">
+
+                    <h3>410 Gone</h3>
+
+                    <p>Resource permanently removed.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="403-forbidden.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/4xx.html">
+
+                    Back to 4xx
+
+                </a>
+
+                <a class="button"
+                    href="405-method-not-allowed.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

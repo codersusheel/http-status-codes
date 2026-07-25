@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>204 No Content | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 204 No Content status code with meaning, browser examples, API examples, Fetch API, cURL, Node.js, PHP, real-world use cases and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>204 No Content</h1>
+
+            <p>
+
+                The request was successful, but the server has
+                no content to return in the response body.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/2xx.html">2xx Success</a>
+
+            <span>></span>
+
+            <span>204 No Content</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 204 No Content?</h2>
+
+            <p>
+
+                <strong>204 No Content</strong> means the server
+                successfully processed the request, but there is
+                nothing to return in the response body.
+
+            </p>
+
+            <p>
+
+                It is commonly used after successful
+                <strong>DELETE</strong>,
+                <strong>PUT</strong>,
+                <strong>PATCH</strong>,
+                or lightweight API requests where no response data
+                is required.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User deletes a file
+
+↓
+
+Server
+
+HTTP/1.1 204 No Content
+
+↓
+
+File deleted successfully
+
+(No response body)
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>DELETE /api/users/15 HTTP/1.1
+Host: api.example.com
+Authorization: Bearer YOUR_TOKEN
+</code></pre>
+
+        </section>
+
+        <!-- API Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 204 No Content
+</code></pre>
+
+        </section>
+
+        <!-- Fetch API -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/users/15",{
+
+    method:"DELETE"
+
+})
+
+.then(response=>{
+
+    console.log(response.status);
+
+    // 204
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.delete("/users/:id",(req,res)=>{
+
+    res.sendStatus(204);
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(204);
+
+// No output
+exit;
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl -X DELETE \
+https://api.example.com/users/15
+</code></pre>
+
+        </section>
+
+        <!-- Request Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── DELETE /users/15
+   │
+Server
+   │
+   ├── Deletes Resource
+   │
+   └── HTTP 204 No Content
+</code></pre>
+
+        </section>
+
+        <!-- Common Uses -->
+
+        <section class="section">
+
+            <h2>Common Uses</h2>
+
+            <ul>
+
+                <li>Delete a record.</li>
+
+                <li>Update profile information.</li>
+
+                <li>Save user settings.</li>
+
+                <li>Logout requests.</li>
+
+                <li>Mark notifications as read.</li>
+
+                <li>Remove uploaded files.</li>
+
+                <li>Successful background operations.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Action</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Delete User</td>
+
+                    <td>204 No Content</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Remove Product</td>
+
+                    <td>204 No Content</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Logout User</td>
+
+                    <td>204 No Content</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Update Settings</td>
+
+                    <td>204 No Content</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Best Practices -->
+
+        <section class="section">
+
+            <h2>Best Practices</h2>
+
+            <ul>
+
+                <li>Use 204 only when no response body is needed.</li>
+
+                <li>Do not send JSON or HTML with a 204 response.</li>
+
+                <li>Use 200 if the client expects response data.</li>
+
+                <li>Use 201 when creating a new resource.</li>
+
+                <li>Keep DELETE and update endpoints lightweight.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>200 vs 204</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>200 OK</td>
+
+                    <td>Success with response data.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>204 No Content</td>
+
+                    <td>Success without any response body.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="200-ok.html" class="card">
+
+                    <h3>200 OK</h3>
+
+                    <p>Request completed successfully.</p>
+
+                </a>
+
+                <a href="201-created.html" class="card">
+
+                    <h3>201 Created</h3>
+
+                    <p>New resource created successfully.</p>
+
+                </a>
+
+                <a href="202-accepted.html" class="card">
+
+                    <h3>202 Accepted</h3>
+
+                    <p>Request accepted for background processing.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="202-accepted.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/2xx.html">
+
+                    Back to 2xx
+
+                </a>
+
+                <a class="button"
+                    href="../categories/3xx.html">
+
+                    Next Category →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

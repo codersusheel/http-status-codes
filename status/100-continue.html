@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>100 Continue | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 100 Continue status code with meaning, browser example, API example, Fetch API, cURL, causes, and best practices.">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>100 Continue</h1>
+
+            <p>
+
+                The server has received the request headers and is ready for the
+                client to continue sending the request body.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/1xx.html">1xx Informational</a>
+
+            <span>></span>
+
+            <span>100 Continue</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 100 Continue?</h2>
+
+            <p>
+
+                <strong>100 Continue</strong> is an informational HTTP response.
+
+                It tells the client that the request headers are valid and the
+                client can continue sending the request body.
+
+            </p>
+
+            <p>
+
+                It is commonly used when uploading large files so the client
+                doesn't send the entire file unless the server is ready.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>Client
+
+POST /upload
+
+Headers Only
+
+↓
+
+Server
+
+HTTP/1.1 100 Continue
+
+↓
+
+Client uploads the file
+
+↓
+
+Server
+
+HTTP/1.1 200 OK
+</code></pre>
+
+        </section>
+
+        <!-- API Example -->
+
+        <section class="section">
+
+            <h2>API Example</h2>
+
+<pre><code>POST /api/upload HTTP/1.1
+Host: api.example.com
+Expect: 100-continue
+Content-Length: 52428800
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 100 Continue
+</code></pre>
+
+        </section>
+
+        <!-- Fetch Example -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/upload",{
+    method:"POST",
+    body:file
+})
+.then(res=>{
+
+    console.log(res.status);
+
+});
+</code></pre>
+
+            <p>
+
+                Browsers automatically handle
+                <strong>100 Continue</strong>.
+                Developers usually don't need to process it manually.
+
+            </p>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl -v \
+-H "Expect: 100-continue" \
+-T large-file.zip \
+https://example.com/upload
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── Request Headers
+   │
+Server
+   │
+   ├── 100 Continue
+   │
+Client
+   │
+   ├── Request Body
+   │
+Server
+   │
+   └── 200 OK
+</code></pre>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Example</h2>
+
+            <ul>
+
+                <li>Uploading a 2 GB video.</li>
+
+                <li>Sending large backup files.</li>
+
+                <li>Cloud storage uploads.</li>
+
+                <li>Large REST API requests.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Why Used -->
+
+        <section class="section">
+
+            <h2>Why is it Used?</h2>
+
+            <ul>
+
+                <li>Reduces unnecessary data transfer.</li>
+
+                <li>Improves upload performance.</li>
+
+                <li>Saves bandwidth.</li>
+
+                <li>Allows early request validation.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="101-switching-protocols.html" class="card">
+
+                    <h3>101 Switching Protocols</h3>
+
+                    <p>Upgrade to another protocol.</p>
+
+                </a>
+
+                <a href="200-ok.html" class="card">
+
+                    <h3>200 OK</h3>
+
+                    <p>Request completed successfully.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="../categories/1xx.html">
+
+                    ← Back to 1xx
+
+                </a>
+
+                <a class="button"
+                    href="101-switching-protocols.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

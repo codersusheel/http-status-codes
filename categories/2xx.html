@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>2xx Success HTTP Status Codes</title>
+
+    <meta name="description"
+        content="Learn 2xx Success HTTP Status Codes including 200 OK, 201 Created, 202 Accepted and 204 No Content with explanations, examples and use cases.">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>2xx Success</h1>
+
+            <p>
+                Success responses indicate that the client's request was
+                successfully received, understood, and processed by the server.
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <span>2xx Success</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>About 2xx Status Codes</h2>
+
+            <p>
+
+                The <strong>2xx</strong> HTTP Status Codes indicate that the
+                request was completed successfully.
+
+                These are the most common responses returned by websites,
+                APIs, applications, and web servers.
+
+            </p>
+
+        </section>
+
+        <!-- Status Cards -->
+
+        <section class="section">
+
+            <h2>Available Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="../status/200-ok.html" class="card">
+
+                    <h3>200 OK</h3>
+
+                    <p>
+                        The request completed successfully.
+                    </p>
+
+                </a>
+
+                <a href="../status/201-created.html" class="card">
+
+                    <h3>201 Created</h3>
+
+                    <p>
+                        A new resource was created successfully.
+                    </p>
+
+                </a>
+
+                <a href="../status/202-accepted.html" class="card">
+
+                    <h3>202 Accepted</h3>
+
+                    <p>
+                        The request has been accepted for processing.
+                    </p>
+
+                </a>
+
+                <a href="../status/204-no-content.html" class="card">
+
+                    <h3>204 No Content</h3>
+
+                    <p>
+                        Request succeeded but no content is returned.
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Common Uses -->
+
+        <section class="section">
+
+            <h2>Where are 2xx Codes Used?</h2>
+
+            <ul>
+
+                <li>Website pages loading successfully</li>
+
+                <li>REST API requests</li>
+
+                <li>User login and authentication</li>
+
+                <li>Database operations</li>
+
+                <li>File uploads</li>
+
+                <li>Form submissions</li>
+
+                <li>Resource creation</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Example -->
+
+        <section class="section">
+
+            <h2>Example</h2>
+
+<pre><code>Request
+
+GET /api/users
+
+↓
+
+HTTP/1.1 200 OK
+
+{
+    "success": true,
+    "users": []
+}
+</code></pre>
+
+        </section>
+
+        <!-- Quick Comparison -->
+
+        <section class="section">
+
+            <h2>Popular 2xx Status Codes</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>200</td>
+
+                    <td>Request successful</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>201</td>
+
+                    <td>Resource created</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>202</td>
+
+                    <td>Accepted for processing</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>204</td>
+
+                    <td>No response body</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button" href="1xx.html">
+                    ← Previous Category
+                </a>
+
+                <a class="button" href="3xx.html">
+                    Next Category →
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

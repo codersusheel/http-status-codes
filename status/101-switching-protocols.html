@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>101 Switching Protocols | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 101 Switching Protocols status code with explanations, WebSocket examples, API examples, browser workflow, cURL commands, and best practices.">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>101 Switching Protocols</h1>
+
+            <p>
+
+                The server has accepted the client's request to switch
+                communication protocols.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/1xx.html">1xx Informational</a>
+
+            <span>></span>
+
+            <span>101 Switching Protocols</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 101 Switching Protocols?</h2>
+
+            <p>
+
+                <strong>101 Switching Protocols</strong> is an informational
+                HTTP response that tells the client the server has agreed to
+                change from one communication protocol to another.
+
+            </p>
+
+            <p>
+
+                It is most commonly used when upgrading an HTTP connection to
+                <strong>WebSocket</strong>, but it can also be used for other
+                protocol upgrades.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>Browser
+
+GET /chat HTTP/1.1
+
+Upgrade: websocket
+Connection: Upgrade
+
+↓
+
+Server
+
+HTTP/1.1 101 Switching Protocols
+
+Upgrade: websocket
+Connection: Upgrade
+
+↓
+
+WebSocket Connection Started
+</code></pre>
+
+        </section>
+
+        <!-- API Example -->
+
+        <section class="section">
+
+            <h2>HTTP Request</h2>
+
+<pre><code>GET /socket HTTP/1.1
+Host: example.com
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Version: 13
+Sec-WebSocket-Key: xxxxxxxxxxxxxx
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: xxxxxxxxxxxxxx
+</code></pre>
+
+        </section>
+
+        <!-- JavaScript -->
+
+        <section class="section">
+
+            <h2>JavaScript Example</h2>
+
+<pre><code>const socket = new WebSocket(
+    "wss://example.com/socket"
+);
+
+socket.onopen = () => {
+
+    console.log("Connected");
+
+};
+</code></pre>
+
+            <p>
+
+                The browser automatically performs the HTTP upgrade request.
+                Developers normally do not manually handle the
+                <strong>101</strong> response.
+
+            </p>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js Server Example</h2>
+
+<pre><code>server.on("upgrade",
+(request, socket, head) => {
+
+    console.log(
+        "Protocol upgraded."
+    );
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl -i \
+-H "Connection: Upgrade" \
+-H "Upgrade: websocket" \
+https://example.com/socket
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── HTTP Request
+   │    Upgrade: websocket
+   │
+Server
+   │
+   ├── 101 Switching Protocols
+   │
+Communication
+   │
+   └── WebSocket Connection
+</code></pre>
+
+        </section>
+
+        <!-- Common Uses -->
+
+        <section class="section">
+
+            <h2>Common Uses</h2>
+
+            <ul>
+
+                <li>Real-time chat applications</li>
+
+                <li>Live notifications</li>
+
+                <li>Online multiplayer games</li>
+
+                <li>Stock market dashboards</li>
+
+                <li>Live sports score updates</li>
+
+                <li>IoT device communication</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Advantages -->
+
+        <section class="section">
+
+            <h2>Advantages</h2>
+
+            <ul>
+
+                <li>Real-time two-way communication.</li>
+
+                <li>Lower latency than repeated HTTP requests.</li>
+
+                <li>Reduces server and network overhead.</li>
+
+                <li>Ideal for live applications.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Related Codes -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="100-continue.html" class="card">
+
+                    <h3>100 Continue</h3>
+
+                    <p>Continue sending the request body.</p>
+
+                </a>
+
+                <a href="200-ok.html" class="card">
+
+                    <h3>200 OK</h3>
+
+                    <p>Standard successful response.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="100-continue.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/1xx.html">
+
+                    1xx Category
+
+                </a>
+
+                <a class="button"
+                    href="../categories/2xx.html">
+
+                    Next Category →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>410 Gone | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 410 Gone status code with browser examples, API requests, Fetch API, cURL, Node.js, PHP, SEO impact, common causes, troubleshooting, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>410 Gone</h1>
+
+            <p>
+
+                The requested resource has been
+                permanently removed and is no longer available.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/4xx.html">
+
+                4xx Client Errors
+
+            </a>
+
+            <span>></span>
+
+            <span>410 Gone</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 410 Gone?</h2>
+
+            <p>
+
+                <strong>410 Gone</strong> means the requested
+                resource has been permanently removed from the server
+                and will not be available again.
+
+            </p>
+
+            <p>
+
+                Unlike <strong>404 Not Found</strong>, a
+                <strong>410 Gone</strong> response clearly tells
+                browsers and search engines that the resource has
+                intentionally been removed.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User visits
+
+/blog/old-post
+
+↓
+
+The article was permanently deleted
+
+↓
+
+Server
+
+HTTP/1.1 410 Gone
+
+↓
+
+Browser displays
+
+410 Gone
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>GET /api/products/100 HTTP/1.1
+Host: api.example.com
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 410 Gone
+Content-Type: application/json
+
+{
+    "success": false,
+    "error": "Resource permanently removed."
+}
+</code></pre>
+
+        </section>
+
+        <!-- JavaScript -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/products/100")
+
+.then(response=>{
+
+    if(response.status===410){
+
+        console.log("Resource permanently removed");
+
+    }
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.get("/old-post",(req,res)=>{
+
+    res.status(410).json({
+
+        error:"Gone"
+
+    });
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(410);
+
+echo json_encode([
+
+    "error"=>"Gone"
+
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl https://api.example.com/products/100
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── Request Resource
+   │
+Server
+   │
+   ├── Resource Permanently Removed
+   │
+   └── HTTP 410 Gone
+</code></pre>
+
+        </section>
+
+        <!-- Common Causes -->
+
+        <section class="section">
+
+            <h2>Common Causes</h2>
+
+            <ul>
+
+                <li>Deleted blog posts.</li>
+
+                <li>Removed products.</li>
+
+                <li>Deprecated API endpoints.</li>
+
+                <li>Expired promotional pages.</li>
+
+                <li>Removed downloadable files.</li>
+
+                <li>Discontinued services.</li>
+
+                <li>Content removed intentionally.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Solutions -->
+
+        <section class="section">
+
+            <h2>How to Fix</h2>
+
+            <ul>
+
+                <li>Restore the resource if needed.</li>
+
+                <li>Update internal links.</li>
+
+                <li>Use a 301 redirect if content moved.</li>
+
+                <li>Remove broken links.</li>
+
+                <li>Update search engine sitemaps.</li>
+
+                <li>Create replacement content when appropriate.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- SEO -->
+
+        <section class="section">
+
+            <h2>SEO Impact</h2>
+
+            <ul>
+
+                <li>Search engines remove the URL from their index faster than a 404.</li>
+
+                <li>Useful when content is intentionally deleted.</li>
+
+                <li>Avoid using 410 if the page may return later.</li>
+
+                <li>Use 301 instead when content has a new location.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Scenario</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Deleted Blog Article</td>
+
+                    <td>410</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Removed Product</td>
+
+                    <td>410</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Retired API Endpoint</td>
+
+                    <td>410</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Expired Campaign Page</td>
+
+                    <td>410</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>404 vs 410</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>404 Not Found</td>
+
+                    <td>Resource cannot be found.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>410 Gone</td>
+
+                    <td>Resource has been permanently removed.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="404-not-found.html"
+                    class="card">
+
+                    <h3>404 Not Found</h3>
+
+                    <p>Requested resource not found.</p>
+
+                </a>
+
+                <a href="409-conflict.html"
+                    class="card">
+
+                    <h3>409 Conflict</h3>
+
+                    <p>Request conflicts with the current resource state.</p>
+
+                </a>
+
+                <a href="429-too-many-requests.html"
+                    class="card">
+
+                    <h3>429 Too Many Requests</h3>
+
+                    <p>Rate limit exceeded.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="409-conflict.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/4xx.html">
+
+                    Back to 4xx
+
+                </a>
+
+                <a class="button"
+                    href="429-too-many-requests.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

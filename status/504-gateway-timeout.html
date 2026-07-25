@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>504 Gateway Timeout | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 504 Gateway Timeout status code with browser examples, API requests, Fetch API, cURL, Node.js, PHP, reverse proxies, troubleshooting, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>504 Gateway Timeout</h1>
+
+            <p>
+
+                The gateway or proxy server did not receive
+                a timely response from the upstream server.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/5xx.html">
+
+                5xx Server Errors
+
+            </a>
+
+            <span>></span>
+
+            <span>504 Gateway Timeout</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 504 Gateway Timeout?</h2>
+
+            <p>
+
+                <strong>504 Gateway Timeout</strong> means a
+                gateway or proxy server waited too long for
+                a response from the upstream server.
+
+            </p>
+
+            <p>
+
+                This usually happens when a reverse proxy,
+                load balancer, CDN, or API gateway cannot
+                receive a response before the timeout period expires.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User visits
+
+https://example.com
+
+↓
+
+Gateway (Nginx / Cloudflare)
+
+↓
+
+Backend Server
+
+↓
+
+No Response
+
+↓
+
+HTTP/1.1 504 Gateway Timeout
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>GET /api/orders HTTP/1.1
+Host: api.example.com
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 504 Gateway Timeout
+Content-Type: application/json
+
+{
+    "success": false,
+    "error": "Gateway Timeout"
+}
+</code></pre>
+
+        </section>
+
+        <!-- JavaScript -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/orders")
+
+.then(response=>{
+
+    if(response.status===504){
+
+        console.log("Gateway Timeout");
+
+    }
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.get("/orders",async(req,res)=>{
+
+    try{
+
+        await slowService();
+
+    }
+
+    catch(error){
+
+        res.status(504).json({
+
+            error:"Gateway Timeout"
+
+        });
+
+    }
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(504);
+
+echo json_encode([
+
+    "error"=>"Gateway Timeout"
+
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl https://api.example.com/orders
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── Request
+   │
+Gateway / Proxy
+   │
+   ├── Waits for Backend
+   │
+Backend Server
+   │
+   ├── No Response
+   │
+Gateway
+   │
+   └── HTTP 504 Gateway Timeout
+</code></pre>
+
+        </section>
+
+        <!-- Common Causes -->
+
+        <section class="section">
+
+            <h2>Common Causes</h2>
+
+            <ul>
+
+                <li>Slow backend server.</li>
+
+                <li>Database queries taking too long.</li>
+
+                <li>Reverse proxy timeout.</li>
+
+                <li>Network connectivity issues.</li>
+
+                <li>Overloaded application server.</li>
+
+                <li>Cloud service delays.</li>
+
+                <li>Firewall or routing problems.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Solutions -->
+
+        <section class="section">
+
+            <h2>How to Fix</h2>
+
+            <ul>
+
+                <li>Check backend server health.</li>
+
+                <li>Optimize slow database queries.</li>
+
+                <li>Increase proxy timeout settings.</li>
+
+                <li>Restart affected services.</li>
+
+                <li>Monitor CPU, RAM, and network usage.</li>
+
+                <li>Review application and proxy logs.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Scenario</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Slow Database Query</td>
+
+                    <td>504</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Backend Server Not Responding</td>
+
+                    <td>504</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Cloud API Timeout</td>
+
+                    <td>504</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Reverse Proxy Timeout</td>
+
+                    <td>504</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>502 vs 504</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>502 Bad Gateway</td>
+
+                    <td>Gateway received an invalid response from the upstream server.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>504 Gateway Timeout</td>
+
+                    <td>Gateway received no response before the timeout expired.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="500-internal-server-error.html"
+                    class="card">
+
+                    <h3>500 Internal Server Error</h3>
+
+                    <p>Unexpected server-side error.</p>
+
+                </a>
+
+                <a href="502-bad-gateway.html"
+                    class="card">
+
+                    <h3>502 Bad Gateway</h3>
+
+                    <p>Invalid response from an upstream server.</p>
+
+                </a>
+
+                <a href="503-service-unavailable.html"
+                    class="card">
+
+                    <h3>503 Service Unavailable</h3>
+
+                    <p>Server is temporarily unavailable.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="503-service-unavailable.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/5xx.html">
+
+                    Back to 5xx
+
+                </a>
+
+                <a class="button"
+                    href="../index.html">
+
+                    Home →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

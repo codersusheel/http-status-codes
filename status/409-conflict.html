@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>409 Conflict | HTTP Status Codes Explorer</title>
+
+    <meta name="description"
+        content="Learn HTTP 409 Conflict status code with browser examples, API requests, Fetch API, cURL, Node.js, PHP, common causes, troubleshooting, and best practices.">
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <h1>409 Conflict</h1>
+
+            <p>
+
+                The request could not be completed because it
+                conflicts with the current state of the resource.
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Breadcrumb -->
+
+        <nav class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span>></span>
+
+            <a href="../categories/4xx.html">
+
+                4xx Client Errors
+
+            </a>
+
+            <span>></span>
+
+            <span>409 Conflict</span>
+
+        </nav>
+
+        <!-- Overview -->
+
+        <section class="section">
+
+            <h2>What is 409 Conflict?</h2>
+
+            <p>
+
+                <strong>409 Conflict</strong> means the request is
+                valid, but it cannot be completed because it
+                conflicts with the current state of the resource.
+
+            </p>
+
+            <p>
+
+                It commonly occurs when updating data,
+                uploading duplicate files, or creating a
+                resource that already exists.
+
+            </p>
+
+        </section>
+
+        <!-- Browser Example -->
+
+        <section class="section">
+
+            <h2>Browser Example</h2>
+
+<pre><code>User edits a profile
+
+↓
+
+Another user saves changes first
+
+↓
+
+You click Save
+
+↓
+
+HTTP/1.1 409 Conflict
+</code></pre>
+
+        </section>
+
+        <!-- API Request -->
+
+        <section class="section">
+
+            <h2>API Request</h2>
+
+<pre><code>POST /api/users HTTP/1.1
+Host: api.example.com
+
+{
+    "email":"john@example.com"
+}
+</code></pre>
+
+        </section>
+
+        <!-- Response -->
+
+        <section class="section">
+
+            <h2>Server Response</h2>
+
+<pre><code>HTTP/1.1 409 Conflict
+Content-Type: application/json
+
+{
+    "success": false,
+    "error": "Email already exists."
+}
+</code></pre>
+
+        </section>
+
+        <!-- JavaScript -->
+
+        <section class="section">
+
+            <h2>JavaScript (Fetch API)</h2>
+
+<pre><code>fetch("/api/users",{
+
+    method:"POST",
+
+    headers:{
+        "Content-Type":"application/json"
+    },
+
+    body:JSON.stringify({
+
+        email:"john@example.com"
+
+    })
+
+})
+
+.then(response=>{
+
+    if(response.status===409){
+
+        console.log("Duplicate record");
+
+    }
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- Node.js -->
+
+        <section class="section">
+
+            <h2>Node.js (Express)</h2>
+
+<pre><code>app.post("/users",(req,res)=>{
+
+    if(userExists){
+
+        return res.status(409).json({
+
+            error:"User already exists"
+
+        });
+
+    }
+
+});
+</code></pre>
+
+        </section>
+
+        <!-- PHP -->
+
+        <section class="section">
+
+            <h2>PHP Example</h2>
+
+<pre><code>http_response_code(409);
+
+echo json_encode([
+
+    "error"=>"Conflict"
+
+]);
+</code></pre>
+
+        </section>
+
+        <!-- cURL -->
+
+        <section class="section">
+
+            <h2>cURL Example</h2>
+
+<pre><code>curl -X POST \
+https://api.example.com/users \
+-H "Content-Type: application/json" \
+-d '{"email":"john@example.com"}'
+</code></pre>
+
+        </section>
+
+        <!-- Flow -->
+
+        <section class="section">
+
+            <h2>Request Flow</h2>
+
+<pre><code>Client
+   │
+   ├── Create Resource
+   │
+Server
+   │
+   ├── Duplicate Found
+   │
+   └── HTTP 409 Conflict
+</code></pre>
+
+        </section>
+
+        <!-- Common Causes -->
+
+        <section class="section">
+
+            <h2>Common Causes</h2>
+
+            <ul>
+
+                <li>Duplicate user registration.</li>
+
+                <li>Email already exists.</li>
+
+                <li>Version control conflicts.</li>
+
+                <li>Simultaneous database updates.</li>
+
+                <li>Duplicate file uploads.</li>
+
+                <li>Resource already exists.</li>
+
+                <li>Optimistic locking failures.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Solutions -->
+
+        <section class="section">
+
+            <h2>How to Fix</h2>
+
+            <ul>
+
+                <li>Refresh the latest resource.</li>
+
+                <li>Resolve conflicting changes.</li>
+
+                <li>Use unique values.</li>
+
+                <li>Retry the request if appropriate.</li>
+
+                <li>Validate data before submitting.</li>
+
+                <li>Implement version checking.</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Real World -->
+
+        <section class="section">
+
+            <h2>Real-World Examples</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Scenario</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Duplicate Username</td>
+
+                    <td>409</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Email Already Registered</td>
+
+                    <td>409</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Git Merge Conflict API</td>
+
+                    <td>409</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Duplicate Product ID</td>
+
+                    <td>409</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Comparison -->
+
+        <section class="section">
+
+            <h2>409 vs 400</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Status</th>
+
+                    <th>Meaning</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>400 Bad Request</td>
+
+                    <td>Request format is invalid.</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>409 Conflict</td>
+
+                    <td>Request conflicts with existing resource state.</td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Related -->
+
+        <section class="section">
+
+            <h2>Related Status Codes</h2>
+
+            <div class="grid">
+
+                <a href="408-request-timeout.html"
+                    class="card">
+
+                    <h3>408 Request Timeout</h3>
+
+                    <p>Client request timed out.</p>
+
+                </a>
+
+                <a href="410-gone.html"
+                    class="card">
+
+                    <h3>410 Gone</h3>
+
+                    <p>Resource permanently removed.</p>
+
+                </a>
+
+                <a href="429-too-many-requests.html"
+                    class="card">
+
+                    <h3>429 Too Many Requests</h3>
+
+                    <p>Too many requests sent.</p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Navigation -->
+
+        <section class="section">
+
+            <div class="page-nav">
+
+                <a class="button"
+                    href="408-request-timeout.html">
+
+                    ← Previous
+
+                </a>
+
+                <a class="button"
+                    href="../categories/4xx.html">
+
+                    Back to 4xx
+
+                </a>
+
+                <a class="button"
+                    href="410-gone.html">
+
+                    Next →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                HTTP Status Codes Explorer • Open Source • Developer Documentation
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>
